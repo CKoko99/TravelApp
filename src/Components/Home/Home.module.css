@@ -1,0 +1,7 @@
+.home-section{
+    text-align: left;
+}
+.section-list{
+    display: flex;
+    overflow: scroll;
+}

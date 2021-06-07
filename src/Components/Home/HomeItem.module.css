@@ -1,0 +1,13 @@
+.home-item{
+    margin-right: 15px;
+}
+.home-img{
+    max-height: 200px;
+}
+.Row2{
+    display: flex;
+}
+.star{
+    width: 15px;
+    height: 15px;
+}

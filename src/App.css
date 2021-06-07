@@ -1,5 +1,8 @@
 .App {
   text-align: center;
+  font-family: 'Chalkboard';
+  width: 90%;
+    margin: auto;
 }
 
 .App-logo {
