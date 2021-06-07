@@ -3,6 +3,24 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import firebase from "firebase/app";
+import "firebase/auth";
+import "firebase/firestore";
+
+var firebaseConfig = {
+  apiKey: "AIzaSyB7LIl-iC-5snjKI-nrMZfZoSf3hdtZNtg",
+  authDomain: "cktravels-57290.firebaseapp.com",
+  projectId: "cktravels-57290",
+  storageBucket: "cktravels-57290.appspot.com",
+  messagingSenderId: "530197763687",
+  appId: "1:530197763687:web:19af61bece184d914026c2"
+};
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+
+export const db = firebase.firestore()
+
+db.settings({ timestanmpsInSnapshots: true})
 
 ReactDOM.render(
   <React.StrictMode>

@@ -2,20 +2,20 @@ import classes from "./Home.module.css";
 import HomeItem from "./HomeItem";
 const Dummy_City = [
   {
-    title: "Mexico",
-    imgs: [{ img: "https://i.imgur.com/RSBdXld.jpg" }],
+    title: "Cancun",
+    imgs: ["https://i.imgur.com/RSBdXld.jpg",],
     rating: 3,
     staffpick: true,
   },
   {
-    title: "Mexico",
-    imgs: [{ img: "https://i.imgur.com/RSBdXld.jpg" }],
-    rating: 5,
+    title: "Sydney",
+    imgs: ["https://i.imgur.com/0MpflaL.jpg",],
+    rating: "New Listing",
     staffpick: false,
   },
   {
-    title: "Mexico",
-    imgs: [{ img: "https://i.imgur.com/RSBdXld.jpg" }],
+    title: "Cancun",
+    imgs: ["https://i.imgur.com/RSBdXld.jpg"],
     rating: 5,
     staffpick: false,
   },
@@ -26,7 +26,7 @@ function Home() {
       <HomeItem
         rating={item.rating}
         title={item.title}
-        img={item.imgs[0].img}
+        img={item.imgs[0]}
       />
     );
   });
@@ -36,7 +36,7 @@ function Home() {
         <HomeItem
           rating={item.rating}
           title={item.title}
-          img={item.imgs[0].img}
+          img={item.imgs[0]}
         />
       );
     }return<></>

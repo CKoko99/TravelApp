@@ -1,0 +1,10 @@
+.footer{
+    background-color: black;
+    height: 300px;
+    position: absolute;
+    left: 0;
+    right: 0;
+}
+.footer-section a{
+    color: white;
+}

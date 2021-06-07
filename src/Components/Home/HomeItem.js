@@ -3,8 +3,9 @@ import Star from "../../Images/Icons/Star.png";
 import EmptyStar from "../../Images/Icons/EmptyStar.png";
 
 function HomeItem(props) {
-  const filledStars = [];
-  const EmptyStars = [];
+    const filledStars = [];
+    const EmptyStars = [];
+    if(props.rating !== "New Listing"){
   const EmptyStarAmount = 5 - props.rating;
   console.log(EmptyStarAmount);
   for (let i = 1; i <= props.rating; i++) {
@@ -12,7 +13,7 @@ function HomeItem(props) {
   }
   for (let i = 1; i <= EmptyStarAmount; i++) {
     EmptyStars.push(<img className={classes.star} alt="ratings" src={EmptyStar} />);
-  }
+  }}
   return (
     <div className={classes["home-item"]}>
       <img
