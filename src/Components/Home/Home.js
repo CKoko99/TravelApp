@@ -1,45 +1,24 @@
+import { useSelector } from "react-redux";
 import classes from "./Home.module.css";
 import HomeItem from "./HomeItem";
-const Dummy_City = [
-  {
-    title: "Cancun",
-    imgs: ["https://i.imgur.com/RSBdXld.jpg",],
-    rating: 3,
-    staffpick: true,
-  },
-  {
-    title: "Sydney",
-    imgs: ["https://i.imgur.com/0MpflaL.jpg",],
-    rating: "New Listing",
-    staffpick: false,
-  },
-  {
-    title: "Cancun",
-    imgs: ["https://i.imgur.com/RSBdXld.jpg"],
-    rating: 5,
-    staffpick: false,
-  },
-];
 function Home() {
-  const topTravels = Dummy_City.map((item) => {
+    const cities = useSelector((state) => state.cities.citiesList);
+    console.log(cities)
+    const cityCopy = [...cities]
+    cityCopy.sort((a,b)=> (a.rating > b.rating) ? -1: 1)
+  const topTravels = cityCopy.map((item) => {
     return (
-      <HomeItem
-        rating={item.rating}
-        title={item.title}
-        img={item.imgs[0]}
-      />
+      <HomeItem rating={item.rating} title={item.title} img={item.imgs[0]} />
     );
   });
-  const staffPicks = Dummy_City.map((item) => {
-    if (item.staffpick) {
+  console.log(cities)
+  const staffPicks = cities.map((item) => {
+    if (item.staffPick) {
       return (
-        <HomeItem
-          rating={item.rating}
-          title={item.title}
-          img={item.imgs[0]}
-        />
+        <HomeItem rating={item.rating} title={item.title} img={item.imgs[0]} />
       );
-    }return<></>
+    }
+    return <></>;
   });
   return (
     <div className={classes.home}>

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import classes from "./Navbar.module.css";
 function Navbar() {
   return (
@@ -13,11 +14,13 @@ function Navbar() {
           </div>
         </div>
         <div className={classes["bottom-section"]}>
-            <div className={classes["bottom-item"]}>Home</div>
-            <div className={classes["bottom-item"]}>Plan A Trip!</div>
-            <div className={classes["bottom-item"]}>Flights</div>
-            <div className={classes["bottom-item"]}>Hotels</div>
-            <div className={classes["bottom-item"]}>Car Rentals</div>
+          <div className={classes["bottom-item"]}>
+            <Link to="/">Home</Link>
+          </div>
+          <div className={classes["bottom-item"]}>Plan A Trip!</div>
+          <div className={classes["bottom-item"]}>Flights</div>
+          <div className={classes["bottom-item"]}>Hotels</div>
+          <div className={classes["bottom-item"]}>Car Rentals</div>
         </div>
       </div>
     </>

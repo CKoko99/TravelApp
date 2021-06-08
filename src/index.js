@@ -6,6 +6,8 @@ import reportWebVitals from './reportWebVitals';
 import firebase from "firebase/app";
 import "firebase/auth";
 import "firebase/firestore";
+import { Provider } from 'react-redux';
+import store from './store/store';
 
 var firebaseConfig = {
   apiKey: "AIzaSyB7LIl-iC-5snjKI-nrMZfZoSf3hdtZNtg",
@@ -23,9 +25,9 @@ export const db = firebase.firestore()
 db.settings({ timestanmpsInSnapshots: true})
 
 ReactDOM.render(
-  <React.StrictMode>
+  <Provider store={store}>
     <App />
-  </React.StrictMode>,
+  </Provider>,
   document.getElementById('root')
 );
 
