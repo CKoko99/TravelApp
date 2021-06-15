@@ -6,7 +6,7 @@ function Navbar() {
       <div className={classes.Navbar}>
         <div className={classes["top-section"]}>
           <div className={classes["top-subsection"]}>
-            <h1>Trip Planner</h1>
+            <h1>Ck Trips</h1>
           </div>
           <div className={classes["top-subsection"]}>
             <h1>Search</h1>

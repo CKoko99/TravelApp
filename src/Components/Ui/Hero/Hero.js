@@ -10,7 +10,7 @@ function Hero(){
     return(
         <div className={classes.hero}>
             <div className={classes['hero-text']}>
-                <h1>Welcome to Trip Planner</h1>
+                <h1>Welcome to CK Trips</h1>
                 <button onClick={heroButtonClickHandler} className={classes['hero-button']}>Plan Your Next Adventure</button>
             </div>
         <img alt="hero" src={hero}/>

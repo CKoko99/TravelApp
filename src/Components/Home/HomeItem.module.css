@@ -2,7 +2,9 @@
     margin-right: 15px;
 }
 .home-img{
-    max-height: 200px;
+    width: 45vh;
+    height: 30vh;
+    object-fit: cover;
 }
 .Row2{
     display: flex;

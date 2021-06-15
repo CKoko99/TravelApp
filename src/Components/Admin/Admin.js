@@ -4,7 +4,7 @@ import { useRef } from "react";
 import HomeItem from "../Home/HomeItem";
 import { db } from "../../index";
 import { useDispatch, useSelector } from "react-redux";
-import { adminActions, cityActions, hotelActions } from "../../store/store";
+import { adminActions, cityActions, flightActions, hotelActions, rentalActions } from "../../store/store";
 import { useEffect } from "react";
 
 function Admin() {
@@ -16,6 +16,8 @@ function Admin() {
   const staffPickRef = useRef();
   const hotelDispatch = useDispatch(hotelActions)
   const cityDispatch = useDispatch(cityActions);
+  const flightDispatch = useDispatch(flightActions)
+  const rentalDispatch = useDispatch(rentalActions)
   const adminDispatch = useDispatch(adminActions);
   const cityList = useSelector((state) => state.cities.citiesList);
   const adminCities = useSelector((state) => state.admin.cityList);
@@ -141,6 +143,30 @@ function Admin() {
         desc: descRef.current.value,
       });
     }
+    if (typeRef.current.value === "Flight") {
+      setItemData({
+        type: typeRef.current.value,
+        title: titleRef.current.value,
+        id: Math.random(),
+        price: priceRef.current.value,
+        rating: 0,
+        staffPick: staffBool,
+        imgs: imgs,
+        desc: descRef.current.value,
+      });
+    }
+    if (typeRef.current.value === "Rental") {
+      setItemData({
+        type: typeRef.current.value,
+        title: titleRef.current.value,
+        id: Math.random(),
+        price: priceRef.current.value,
+        rating: 0,
+        staffPick: staffBool,
+        imgs: imgs,
+        desc: descRef.current.value,
+      });
+    }
     if (typeRef.current.value === "Hotel") {
       const markedCityList = adminCities.filter((city) => city.marked === true);
       const markedCityNames = [];
@@ -211,6 +237,7 @@ function Admin() {
         });
     }
     if (itemData.type === "Flight") {
+        const Flights = []
       db.collection("Flights").add({
         title: itemData.title,
         id: itemData.id,
@@ -219,7 +246,57 @@ function Admin() {
         staffpick: itemData.staffPick,
         imgs: itemData.imgs,
         desc: itemData.desc,
-      });
+      }).then(res =>{
+          resetForm()
+          db.collection("Flights")
+            .get()
+            .then((querySnapshot) => {
+              querySnapshot.forEach((doc) => {
+                const flight = {
+                  title: doc.data().title,
+                  id: doc.data().id,
+                  price: doc.data().price,
+                  rating: doc.data().rating,
+                  staffPick: doc.data().staffpick,
+                  imgs: doc.data().imgs,
+                  desc: doc.data().desc,
+                };
+                Flights.push(flight);
+              });
+              flightDispatch(flightActions.updateFromDb(Flights));
+            });
+      })
+    }
+    if (itemData.type === "Rental") {
+        const Rentals = []
+      db.collection("Rentals").add({
+        title: itemData.title,
+        id: itemData.id,
+        price: itemData.price,
+        rating: itemData.rating,
+        staffpick: itemData.staffPick,
+        imgs: itemData.imgs,
+        desc: itemData.desc,
+      }).then(res =>{
+          resetForm()
+          db.collection("Rentals")
+            .get()
+            .then((querySnapshot) => {
+              querySnapshot.forEach((doc) => {
+                const rental = {
+                  title: doc.data().title,
+                  id: doc.data().id,
+                  price: doc.data().price,
+                  rating: doc.data().rating,
+                  staffPick: doc.data().staffpick,
+                  imgs: doc.data().imgs,
+                  desc: doc.data().desc,
+                };
+                Rentals.push(rental);
+              });
+              rentalDispatch(rentalActions.updateFromDb(Rentals));
+            });
+      })
     }
     if (itemData.type === "Hotel") {
         const Hotels = []

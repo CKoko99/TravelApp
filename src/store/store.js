@@ -21,22 +21,61 @@ const citiesSlice = createSlice({
   },
 });
 const hotelsInitialState = {
-    hotelsList: [],
+  hotelsList: [],
+};
+
+const hotelSlice = createSlice({
+  name: "hotels",
+  initialState: hotelsInitialState,
+  reducers: {
+    updateFromDb(state, action) {
+      state.hotelsList = [];
+      action.payload.forEach((hotel) => {
+        state.hotelsList.push(hotel);
+      });
+      console.log(state.hotelsList);
+    },
+    reset(state) {
+      state.hotelsList = [];
+    },
+  },
+});
+
+const flightsInitialState = {
+    flightsList: [],
   };
-  
-  const hotelSlice = createSlice({
-    name: "hotels",
-    initialState: hotelsInitialState,
+const flightsSlice = createSlice({
+    name: "flights",
+    initialState: flightsInitialState,
     reducers: {
       updateFromDb(state, action) {
-        state.hotelsList = [];
-        action.payload.forEach((hotel) => {
-          state.hotelsList.push(hotel);
+        state.flightsList = [];
+        action.payload.forEach((flight) => {
+          state.flightsList.push(flight);
         });
-        console.log(state.hotelsList);
+        console.log(state.flightsList);
       },
       reset(state) {
-        state.hotelsList = [];
+        state.flightsList = [];
+      },
+    },
+  });
+const rentalsInitialState = {
+    rentalsList: [],
+  };
+const rentalsSlice = createSlice({
+    name: "rentals",
+    initialState: rentalsInitialState,
+    reducers: {
+      updateFromDb(state, action) {
+        state.rentalsList = [];
+        action.payload.forEach((rental) => {
+          state.rentalsList.push(rental);
+        });
+        console.log(state.rentalsList);
+      },
+      reset(state) {
+        state.rentalsList = [];
       },
     },
   });
@@ -79,10 +118,14 @@ const store = configureStore({
     cities: citiesSlice.reducer,
     admin: adminSlice.reducer,
     hotels: hotelSlice.reducer,
+    flights: flightsSlice.reducer,
+    rentals: rentalsSlice.reducer
   },
 });
 
 export const cityActions = citiesSlice.actions;
 export const hotelActions = hotelSlice.actions;
 export const adminActions = adminSlice.actions;
+export const rentalActions = rentalsSlice.actions;
+export const flightActions = flightsSlice.actions;
 export default store;
