@@ -1,0 +1,19 @@
+.home-item {
+  margin-right: 15px;
+}
+.home-img {
+  width: 45vh;
+  height: 30vh;
+  object-fit: cover;
+}
+.Row2 {
+  display: flex;
+}
+.star {
+  width: 15px !important;
+  height: 15px !important;
+  max-height: none !important;
+  max-width: none !important;
+  min-height: 0px !important;
+  min-width: 0px !important;
+}

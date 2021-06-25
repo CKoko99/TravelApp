@@ -1,0 +1,25 @@
+.hero img {
+  width: 100%;
+  z-index: -1;
+}
+.hero-text {
+    color: white;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  text-align: center;
+}
+
+.hero-button{
+    color: white;
+    padding: 15px;
+    border-radius: 30px;
+    background-color: rgb(224, 65, 92);
+    border: 1px white solid;
+    font: inherit;
+}
+.hero-button:hover{
+    background-color: rgb(242, 106, 129);
+}
