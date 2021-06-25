@@ -7,6 +7,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { adminActions, cityActions, flightActions, hotelActions, rentalActions } from "../../store/store";
 import { useEffect } from "react";
 
+function getRandomInt() {
+  const min = 0
+  const max = 100000
+  return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
+}
+
 function Admin() {
   const typeRef = useRef();
   const titleRef = useRef();
@@ -135,7 +141,7 @@ function Admin() {
       setItemData({
         type: typeRef.current.value,
         title: titleRef.current.value,
-        id: Math.random(),
+        id: getRandomInt(),
         price: priceRef.current.value,
         rating: 0,
         staffPick: staffBool,
@@ -147,7 +153,7 @@ function Admin() {
       setItemData({
         type: typeRef.current.value,
         title: titleRef.current.value,
-        id: Math.random(),
+        id: getRandomInt(),
         price: priceRef.current.value,
         rating: 0,
         staffPick: staffBool,
@@ -159,7 +165,7 @@ function Admin() {
       setItemData({
         type: typeRef.current.value,
         title: titleRef.current.value,
-        id: Math.random(),
+        id: getRandomInt(),
         price: priceRef.current.value,
         rating: 0,
         staffPick: staffBool,
@@ -177,7 +183,7 @@ function Admin() {
       setItemData({
         type: typeRef.current.value,
         title: titleRef.current.value,
-        id: Math.random(),
+        id: getRandomInt(),
         price: priceRef.current.value,
         rating: 0,
         staffPick: staffBool,

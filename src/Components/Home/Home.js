@@ -4,26 +4,21 @@ import HomeItem from "./HomeItem";
 function Home() {
   const cities = useSelector((state) => state.cities.citiesList);
   const hotels = useSelector((state) => state.hotels.hotelsList);
-  console.log(hotels);
   const cityCopy = [...cities];
   cityCopy.sort((a, b) => (a.rating > b.rating ? -1 : 1));
   const topTravels = cityCopy.map((item) => {
     return (
-      <HomeItem rating={item.rating} title={item.title} img={item.imgs[0]} />
+      <HomeItem key={item.id} rating={item.rating} title={item.title} img={item.imgs[0]} />
     );
   });
-  console.log(cities);
-  const staffPicks = cities.map((item) => {
-    if (item.staffPick) {
+  const staffPicks = cities.filter(city => city.staffPick).map((item) => {
       return (
-        <HomeItem rating={item.rating} title={item.title} img={item.imgs[0]} />
+        <HomeItem key={item.id} rating={item.rating} title={item.title} img={item.imgs[0]} />
       );
-    }
-    return <></>;
   });
   const hotelList = hotels.map((item) => {
     return (
-      <HomeItem rating={item.rating} title={item.title} img={item.imgs[0]} />
+      <HomeItem key={item.id} rating={item.rating} title={item.title} img={item.imgs[0]} />
     );
   });
   return (

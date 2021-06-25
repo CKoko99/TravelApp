@@ -9,10 +9,10 @@ function HomeItem(props) {
     if(props.rating !== 0){
   const EmptyStarAmount = 5 - props.rating;
   for (let i = 1; i <= props.rating; i++) {
-    filledStars.push(<img className={classes.star} alt="ratings" src={Star} />);
+    filledStars.push(<img className={classes.star} key={i} alt="ratings" src={Star} />);
   }
   for (let i = 1; i <= EmptyStarAmount; i++) {
-    EmptyStars.push(<img className={classes.star} alt="ratings" src={EmptyStar} />);
+    EmptyStars.push(<img key={i} className={classes.star} alt="ratings" src={EmptyStar} />);
   }}else{
     rating = "New Listing"
   }
