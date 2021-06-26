@@ -8,7 +8,7 @@
 }
 .bottom-section{
     display: flex;
-    background-color: black;
+    background-color: white;
 }
 .bottom-item:hover{
     background-color: rgb(99, 99, 99);
@@ -24,8 +24,38 @@
 }
 .bottom-item a{
     text-decoration: none;
-    color: white;
+    color: black;
 }
 .Navbar a:visited{
     text-decoration: none;
 }
+.mobile{
+    display: none;
+}
+.ham{
+    width: 2em;
+    margin: 1em;
+}
+.mobile-sections{
+    display: flex;
+    justify-content: space-between;
+}
+@media only screen and (max-width: 900px) {
+    .desktop{
+      display: none;
+    }
+    .mobile{
+        display: block;
+        margin: auto;
+    }
+    .Navbar{
+        position: fixed;
+        width: 90%;
+        background-color: #FFF2E5;
+        z-index: 3;
+        left: 0;
+        right: 0;
+        padding: 0  5vw;
+    }
+
+  }

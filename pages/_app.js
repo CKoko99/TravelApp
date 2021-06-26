@@ -18,14 +18,15 @@ var firebaseConfig = {
 
 if (!firebase.apps.length) {
   firebase.initializeApp(firebaseConfig);
-  console.log("firebase 1")
 }else {
   firebase.app(); // if already initialized, use that one
-  console.log("firebase 2")
 }
 export const db = firebase.firestore()
-
+try{
 db.settings({ timestanmpsInSnapshots: true, merge: true})
+}catch(e){
+
+}
 
 function MyApp({ Component, pageProps }) {
   return <Provider store={store}><Layout><Component {...pageProps} /></Layout></Provider>
