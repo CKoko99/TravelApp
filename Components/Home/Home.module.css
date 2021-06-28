@@ -1,6 +1,11 @@
+.home{
+    width: 90%;
+    margin: 5em auto;
+}
 .home-section{
     text-align: left;
 }
+
 .section-list{
     display: flex;
     overflow: scroll;

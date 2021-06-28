@@ -18,7 +18,7 @@ function Navbar() {
           <h1 className={classes["modal-exit"]} onClick={closeModalHandler}>
             X
           </h1>
-          <div className={classes["bottom-section"]}>
+          <div className={classes["section"]}>
             <div onClick={closeModalHandler} className={classes["bottom-item"]}>
               <Link href="/">Home</Link>
             </div>
@@ -55,15 +55,9 @@ function Navbar() {
     <>
       <div className={classes.Navbar}>
         <div className={classes.desktop}>
-          <div className={classes["top-section"]}>
-            <div className={classes["top-subsection"]}>
-              <h1>Ck Trips</h1>
-            </div>
-            <div className={classes["top-subsection"]}></div>
-          </div>
-          <div className={classes["bottom-section"]}>
+          <div className={classes["section"]}>
             <div className={classes["bottom-item"]}>
-              <Link href="/">Home</Link>
+              <Link href="/">Ck Trips</Link>
             </div>
             <div className={classes["bottom-item"]}>
               <Link href="/plan/city">Plan A Trip!</Link>
@@ -73,16 +67,16 @@ function Navbar() {
               <Link href="/cities">Cities</Link>
             </div>
             <div className={classes["bottom-item"]}>
-              <Link href="/flights">Flights</Link>
+              <Link href="/flights">Airlines</Link>
             </div>
             <div className={classes["bottom-item"]}>
               <Link href="/hotels">Hotels</Link>
             </div>
             <div className={classes["bottom-item"]}>
-              <Link href="/rentals">Car Rentals</Link>
+              <Link href="/rentals">Rental Services</Link>
             </div>
             <div className={classes["bottom-item"]}>
-              <Link href="/plannedtrip">Trip Details</Link>
+              <Link href="/plannedtrip">Planned Trips</Link>
             </div>
             <div className={classes["bottom-item"]}>
               <Link href="/cart">Cart</Link>
@@ -92,16 +86,21 @@ function Navbar() {
       </div>
       <div className={classes["mobile"]}>
         <div className={classes["mobile-sections"]}>
-        <img alt="home"
-        className={classes["ham"]}
-        src={"https://each-day-counts.web.app/static/media/home.78c6e013.svg"}
-        />
-        <img
-          alt="ham"
-          onClick={openModalHandler}
-          className={classes["ham"]}
-          src={"https://courtneykoko.com/static/media/ham.976b5194.png"}
-        />
+          <Link href="/">
+            <img
+              alt="home"
+              className={classes["ham"]}
+              src={
+                "https://each-day-counts.web.app/static/media/home.78c6e013.svg"
+              }
+            />
+          </Link>
+          <img
+            alt="ham"
+            onClick={openModalHandler}
+            className={classes["ham"]}
+            src={"https://courtneykoko.com/static/media/ham.976b5194.png"}
+          />
         </div>
         {modal}
       </div>

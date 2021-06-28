@@ -6,30 +6,35 @@ function Home() {
   const hotels = useSelector((state) => state.hotels.hotelsList);
   const cityCopy = [...cities];
   cityCopy.sort((a, b) => (a.rating > b.rating ? -1 : 1));
+  let count = 0
   const topTravels = cityCopy.map((item) => {
+    if(count < 3){
+      count++
     return (
-      <HomeItem key={item.id} rating={item.rating} title={item.title} img={item.imgs[0]} />
-    );
+      <HomeItem type="city" key={item.id} rating={item.rating} title={item.title} img={item.imgs[0]} />
+    );}else{
+      return<></>
+    }
   });
   const staffPicks = cities.filter(city => city.staffPick).map((item) => {
       return (
-        <HomeItem key={item.id} rating={item.rating} title={item.title} img={item.imgs[0]} />
+        <HomeItem type="city" id={item.id} key={item.id} rating={item.rating} title={item.title} img={item.imgs[0]} />
       );
   });
   const hotelList = hotels.map((item) => {
     return (
-      <HomeItem key={item.id} rating={item.rating} title={item.title} img={item.imgs[0]} />
+      <HomeItem type="hotel" key={item.id} rating={item.rating} title={item.title} img={item.imgs[0]} />
     );
   });
   return (
     <div className={classes.home}>
       <div className={classes["home-section"]}>
-        <h3>Top Travel Locations</h3>
-        <div className={classes["section-list"]}>{topTravels}</div>
-      </div>
-      <div className={classes["home-section"]}>
         <h3>Staff Picks</h3>
         <div className={classes["section-list"]}>{staffPicks}</div>
+      </div>
+      <div className={classes["home-section"]}>
+        <h3>Top Travel Locations</h3>
+        <div className={classes["section-list"]}>{topTravels}</div>
       </div>
       <div className={classes["home-section"]}>
         <h3>Hotels</h3>

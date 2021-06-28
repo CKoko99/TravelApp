@@ -16,15 +16,9 @@ function Hero() {
     <>
       <div className={classes.hero}>
         <div className={classes["hero-text"]}>
-          <h1>Welcome to CK Trips</h1>
-          <button
-            onClick={heroButtonClickHandler}
-            className={classes["hero-button"]}
-          >
-            Plan Your Next Adventure
-          </button>
+          <h1>Turn Your Adventurous Dreams to Reality</h1>
         </div>
-        <Image alt="hero" src={hero} />
+          <input className={classes.search} placeholder="Search"/>
       </div>
       {showModal && <Datemodal/>}
     </>

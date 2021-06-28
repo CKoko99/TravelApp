@@ -1,4 +1,7 @@
 
+.Navbar{
+    font-size: 1.5em;
+}
 .top-section{
     display: flex;
     justify-content: space-between;
@@ -6,12 +9,16 @@
 .top-subsection{
     display: flex;
 }
-.bottom-section{
+.section{
     display: flex;
     background-color: white;
+    justify-content: space-evenly;
+    width: 85%;
+    text-align: center;
+    margin: auto;
 }
 .bottom-item:hover{
-    background-color: rgb(99, 99, 99);
+    background-color: rgb(210, 210, 210);
 }
 .bottom-item {
     padding: 10px 15px;
@@ -40,6 +47,19 @@
     display: flex;
     justify-content: space-between;
 }
+.modal{
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 100;
+    height: 20000px;
+    background-color: black;
+    color: white;
+}
+a .ham:hover{
+    cursor: pointer;
+}
 @media only screen and (max-width: 900px) {
     .desktop{
       display: none;
@@ -47,6 +67,10 @@
     .mobile{
         display: block;
         margin: auto;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        background-color: white;
     }
     .Navbar{
         position: fixed;

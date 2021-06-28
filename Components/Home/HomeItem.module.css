@@ -1,3 +1,9 @@
+.home-item a {
+  cursor: pointer;
+}
+.home-item img {
+  cursor: pointer;
+}
 .home-item {
   margin-right: 15px;
 }
@@ -5,6 +11,7 @@
   width: 45vh;
   height: 30vh;
   object-fit: cover;
+  border-radius: 35px;
 }
 .Row2 {
   display: flex;
