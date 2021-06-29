@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Pagecard from "../../Components/Ui/Cards/Pagecard";
+import Plancard from "../../Components/Ui/Cards/Plancard";
+import Detailspage from "../../Components/Detailspage/Detailspage";
 import { planActions } from "../../store/store";
 import { useRouter } from "next/dist/client/router";
+import classes from "./plan.module.css";
+
 function isEmpty(obj) {
   return Object.keys(obj).length === 0;
 }
@@ -29,7 +32,7 @@ function Planhotel() {
   const hotelList = hotels.map((item) => {
     if (item.cities.includes(planSelector.city.title)) {
       return (
-        <Pagecard
+        <Plancard
           onClick={() => {
             clicked(item);
           }}
@@ -45,18 +48,24 @@ function Planhotel() {
   });
   return (
     <>
+            <div className={classes.plan}>
       {selectedHotel && (
-        <Pagecard
+        <div className={classes.details}>
+        <Detailspage
           desc={selectedHotel.desc}
           rating={selectedHotel.rating}
           title={selectedHotel.title}
-          img={selectedHotel.imgs[0]}
-        />
+          imgs={selectedHotel.imgs}
+          planning={true}
+        /></div>
       )}
       {selectedHotel && (
-        <button onClick={selectHotelHandler}>Choose a Rental Service</button>
+        <div className={classes["plan-button"]} onClick={selectHotelHandler}>Choose a Rental Service</div>
       )}
+        <div className={classes["plan-title"]}>
+          Choose Your Hotel</div>
       {hotelList}
+      </div>
     </>
   );
 }

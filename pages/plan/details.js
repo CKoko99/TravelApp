@@ -3,7 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { planActions, savedPlanActions } from "../../store/store";
 import Pagecard from "../../Components/Ui/Cards/Pagecard";
 import { useRouter } from "next/dist/client/router";
-
+import classes from "./plan.module.css";
+import Plancard from "../../Components/Ui/Cards/Plancard"
 function isEmpty(obj) {
   return Object.keys(obj).length === 0;
 }
@@ -78,8 +79,14 @@ function Plandetails() {
 }else
   return (
     <>
-    {planSelector.startDate}
-    {planSelector.endDate}
+            <div className={classes.plan}>
+            {planSelector.days > 0 && (<>
+            <div className={classes.title}>Selected Trip Dates</div>
+          <div className={classes.dates}>
+            <div className={classes.date}>From: {planSelector.startDate}</div>
+            <div className={classes.date}>To: {planSelector.endDate}</div>
+          </div></>
+        )}
       {selectedCity.id && (
         <Pagecard
           desc={selectedCity.desc}
@@ -112,8 +119,11 @@ function Plandetails() {
           img={selectedRental.imgs[0]}
         />
       )}
+      <div className={classes.reciept}>
       {tripPrice}
+      </div>
       <button onClick={submitTripHandler}>plan trip</button>
+      </div>
     </>
   );
 }

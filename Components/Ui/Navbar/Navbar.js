@@ -59,28 +59,42 @@ function Navbar() {
             <div className={classes["bottom-item"]}>
               <Link href="/">Ck Trips</Link>
             </div>
+              <Link href="/plan/city">
             <div className={classes["bottom-item"]}>
-              <Link href="/plan/city">Plan A Trip!</Link>
+                Plan A Trip!
             </div>
+                </Link>
 
+              <Link href="/cities">
             <div className={classes["bottom-item"]}>
-              <Link href="/cities">Cities</Link>
+                Cities
             </div>
+                </Link>
+              <Link href="/flights">
             <div className={classes["bottom-item"]}>
-              <Link href="/flights">Airlines</Link>
+                Airlines
             </div>
+                </Link>
+              <Link href="/hotels">
             <div className={classes["bottom-item"]}>
-              <Link href="/hotels">Hotels</Link>
+                Hotels
             </div>
+                </Link>
+              <Link href="/rentals">
             <div className={classes["bottom-item"]}>
-              <Link href="/rentals">Rental Services</Link>
+                Rental Services
             </div>
+                </Link>
+              <Link href="/plannedtrip">
             <div className={classes["bottom-item"]}>
-              <Link href="/plannedtrip">Planned Trips</Link>
+                Planned Trips
             </div>
+                </Link>
+              <Link href="/cart">
             <div className={classes["bottom-item"]}>
-              <Link href="/cart">Cart</Link>
+                Cart
             </div>
+                </Link>
           </div>
         </div>
       </div>

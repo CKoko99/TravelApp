@@ -30,7 +30,7 @@
   margin: auto;
 }
 .date {
-  padding: 1em;
+  padding: .5em;
 }
 
 .title{
@@ -59,4 +59,20 @@
 }
 .change-btn{
   margin: 1em auto;
+}
+@media only screen and (max-width: 900px) {
+  .change-btn{
+    width: 50%;
+  }
+  .dates{
+    flex-direction: column;
+    align-items: center;
+  }
+  .plan-modal{
+    width: 90%;
+    padding: 3em;
+  }
+  .title{
+    font-size: 1.5em;
+  }
 }

@@ -48,15 +48,18 @@ function HomeItem(props) {
         />
       </Link>
       <div className={classes.Rows}>
-        <div className={classes.Row1}>
+        <div className={classes.title}>
           <Link href={`/${props.type}/${props.id}`}>
             {props.title}
           </Link>
         </div>
-        <div className={classes.Row2}>
-          <div>{rating || props.rating}</div>
+        <div className={classes.rating}>
+          <div>{rating}</div>
+
+        <div className={classes.stars}>
           {filledStars}
           {EmptyStars}
+          </div>
         </div>
       </div>
     </div>

@@ -11,8 +11,8 @@
 }
 .section{
     display: flex;
-    justify-content:space-evenly;
-    width: 85%;
+    justify-content: space-evenly;
+    width: 100%;
     text-align: center;
     margin: auto;
 }
@@ -23,7 +23,6 @@
     padding: 1em 1.5em;
     color: white;
     font-weight: bold;
-
 }
 .Navbar a{
     text-decoration: none;
@@ -39,6 +38,7 @@
 .mobile{
     display: none;
     z-index: 5;
+    background-color: rgb(255, 234, 234);
 }
 .ham{
     width: 2em;
@@ -55,10 +55,18 @@
     top: 0;
     z-index: 100;
     height: 20000px;
-    background-color: black;
+    background-color: rgb(84, 84, 84);
     color: white;
 }
 a .ham:hover{
+    cursor: pointer;
+}
+.modal-exit{
+    text-align: right;
+    margin: 1em 1em .5em;
+}
+.bottom-item{
+    color: black;
     cursor: pointer;
 }
 @media only screen and (max-width: 900px) {
@@ -71,16 +79,23 @@ a .ham:hover{
         position: fixed;
         width: 100%;
         top: 0;
-        background-color: white;
     }
     .Navbar{
         position: fixed;
         width: 90%;
-        background-color: #FFF2E5;
         z-index: 3;
         left: 0;
         right: 0;
         padding: 0  5vw;
+    }
+    .section{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+    .bottom-item{
+        width: 80%;
+    text-align: right;
     }
 
   }

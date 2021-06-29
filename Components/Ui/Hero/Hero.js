@@ -18,7 +18,7 @@ function Hero() {
         <div className={classes["hero-text"]}>
           <h1>Turn Your Adventurous Dreams to Reality</h1>
         </div>
-          <input className={classes.search} placeholder="Search"/>
+          <input className={classes.search} placeholder="Search..."/>
       </div>
       {showModal && <Datemodal/>}
     </>

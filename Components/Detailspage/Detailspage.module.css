@@ -9,6 +9,7 @@
 }
 .slide-img {
   width: 100%;
+  box-shadow: 0px 2px 5px 0px rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%) !important;
 }
 
 .slideshow-container {
@@ -16,6 +17,7 @@
   width: 70%;
   position: relative;
   margin: auto;
+  
 }
 
 /* Hide the images by default */
@@ -99,7 +101,7 @@
   animation-duration: 1.5s;
 }
 .rating{
-  margin: 0 auto 1em;
+  margin: 1em auto 1em;
 }
 .plan-button {
   background-color: pink;
@@ -138,5 +140,8 @@
   }
   .plan-button{
     width: 70%;
+  }
+  .title{
+    font-size: 2em;
   }
 }

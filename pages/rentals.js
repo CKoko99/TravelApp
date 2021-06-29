@@ -1,4 +1,4 @@
-import Link from "next/Link";
+import classes from "./pages.module.css";
 import { useSelector } from "react-redux";
 import Pagecard from "../Components/Ui/Cards/Pagecard";
 
@@ -15,7 +15,8 @@ function Rentals(){
             img={item.imgs[0]}
           />)
       });
-    return<>{rentalList}</>
+    return<><div className={classes["page-list"]}>
+    <div className={classes.title}>Airlines</div>{rentalList}</div></>
 }
 
 export default Rentals

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Datemodal from "../../Components/Ui/DateModal/DateModal";
 import Plancard from "../../Components/Ui/Cards/Plancard";
@@ -20,7 +20,7 @@ function Plancity() {
   }
   function clicked(text) {
     setSelectedCity(text);
-    window.scrollTo(0, 0)
+    window.scrollTo(0, 200)
   }
   function selectCityHandler() {
     if (planSelector.days > 0) {
@@ -55,20 +55,22 @@ function Plancity() {
     <div className={classes.plan}>
       {showModal && <Datemodal />}
       {errorModal}
-      {selectedCity && (
+
+      {selectedCity && (<div className={classes.details}>
         <Detailspage
           desc={selectedCity.desc}
           rating={selectedCity.rating}
           title={selectedCity.title}
           imgs={selectedCity.imgs}
           planning={true}
-        />
+        /></div>
       )}
       {selectedCity && (
         <div onClick={selectCityHandler} className={classes["plan-button"]}>
           Plan a Flight!
         </div>
       )}
+      <div className={classes["plan-title"]}>Choose Your Destination</div>
       {cityList}
     </div>
   );

@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Pagecard from "../../Components/Ui/Cards/Pagecard";
+import Plancard from "../../Components/Ui/Cards/Plancard";
+import Detailspage from "../../Components/Detailspage/Detailspage";
 import { planActions } from "../../store/store";
 import { useRouter } from "next/dist/client/router";
+import classes from "./plan.module.css";
+
 function Planflight() {
   const planSelector = useSelector((state) => state.plan);
   const planDispatch = useDispatch(planActions);
@@ -25,7 +28,7 @@ function Planflight() {
   }
   const flightList = flights.map((item) => {
     return (
-      <Pagecard
+      <Plancard
         onClick={() => {
           clicked(item);
         }}
@@ -38,18 +41,24 @@ function Planflight() {
   });
   return (
     <>
-      {selectedFlight && (
-        <Pagecard
+        <div className={classes.plan}>
+
+      {selectedFlight && (<div className={classes.details}>
+        <Detailspage
           desc={selectedFlight.desc}
           rating={selectedFlight.rating}
           title={selectedFlight.title}
-          img={selectedFlight.imgs[0]}
-        />
+          imgs={selectedFlight.imgs}
+          planning={true}
+        /></div>
       )}
       {selectedFlight && (
-        <button onClick={selectFlightHandler}>Choose a Hotel</button>
+        <div className={classes["plan-button"]} onClick={selectFlightHandler}>Choose a Hotel</div>
       )}
+            <div className={classes["plan-title"]}>Choose Your Airline</div>
+
       {flightList}
+      </div>
     </>
   );
 }

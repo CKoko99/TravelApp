@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Pagecard from '../../Components/Ui/Cards/Pagecard'
+import Plancard from "../../Components/Ui/Cards/Plancard";
+import Detailspage from "../../Components/Detailspage/Detailspage";
 import { planActions } from "../../store/store";
 import { useRouter } from "next/dist/client/router";
+import classes from "./plan.module.css";
+
 function isEmpty(obj) {
     return Object.keys(obj).length === 0;
 }
@@ -27,13 +30,15 @@ function Planrental() {
   }
   const rentalList = rentals.map((item) => {
     return (
-      <Pagecard onClick={() =>{clicked(item)}} desc={item.desc} rating={item.rating} title={item.title} img={item.imgs[0]} />
+      <Plancard onClick={() =>{clicked(item)}} desc={item.desc} rating={item.rating} title={item.title} img={item.imgs[0]} />
       );
     });
     return <>
-  {selectedRental && <Pagecard desc={selectedRental.desc} rating={selectedRental.rating} title={selectedRental.title} img={selectedRental.imgs[0]} />}
-  {selectedRental && <button onClick={selectRentalHandler}>View Trip Plans</button>}
-  {rentalList}</>;
+            <div className={classes.plan}>
+  {selectedRental && (<div className={classes.details}><Detailspage desc={selectedRental.desc} planning={true} rating={selectedRental.rating} title={selectedRental.title} imgs={selectedRental.imgs} /></div>)}
+  {selectedRental && <div className={classes["plan-button"]} onClick={selectRentalHandler}>View Trip Plans</div>}
+  <div className={classes["plan-title"]}>Choose Your Rental Service</div>
+  {rentalList}</div></>;
 }
 
 export default Planrental;

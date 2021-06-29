@@ -1,3 +1,4 @@
+import classes from "./pages.module.css";
 import { useSelector } from "react-redux";
 import Pagecard from "../Components/Ui/Cards/Pagecard";
 
@@ -14,7 +15,8 @@ function Hotels(){
           img={item.imgs[0]}
         />)
       });
-    return<>{hotelList}</>
+    return<><div className={classes["page-list"]}>
+    <div className={classes.title}>Hotels</div>{hotelList}</div></>
 }
 
 export default Hotels

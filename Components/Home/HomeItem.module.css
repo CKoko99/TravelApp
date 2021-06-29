@@ -13,7 +13,10 @@
   object-fit: cover;
   border-radius: 35px;
 }
-.Row2 {
+.title{
+  font-size: 1.8vw;
+}
+.rating {
   display: flex;
 }
 .star {
@@ -23,4 +26,11 @@
   max-width: none !important;
   min-height: 0px !important;
   min-width: 0px !important;
+}
+.Rows{
+  padding: 0 .3em;
+}
+@media only screen and (max-width: 900px) {
+  .title{
+    font-size: 1em;  }
 }

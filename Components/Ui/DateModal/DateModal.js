@@ -28,10 +28,10 @@ function Datemodal(props) {
     setTimeout(()=>{
       if(first){
         first = false
+        if (planSelector.days <= 0) {
+          setShowSelect(true);
+        } else {
         setShowModal(true)
-      if (planSelector.days <= 0) {
-        setShowSelect(true);
-      } else {
         setShowSelect(false);
       }}
     }, 1000)
@@ -160,6 +160,7 @@ function Datemodal(props) {
                     />
                     </div>
                   </div>
+                  <div className={classes.buttons}>
                   <button onClick={displayModalHandler} type="submit">
                     Cancel
                   </button>
@@ -168,6 +169,7 @@ function Datemodal(props) {
                       Plan
                     </button>
                   )}
+                  </div>
                 </form>
               </div>
             )}

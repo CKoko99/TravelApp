@@ -29,15 +29,15 @@ function Home() {
   return (
     <div className={classes.home}>
       <div className={classes["home-section"]}>
-        <h3>Staff Picks</h3>
+        <h3 className={classes["section-title"]}>Staff Picks</h3>
         <div className={classes["section-list"]}>{staffPicks}</div>
       </div>
       <div className={classes["home-section"]}>
-        <h3>Top Travel Locations</h3>
+        <h3 className={classes["section-title"]}>Top Travel Locations</h3>
         <div className={classes["section-list"]}>{topTravels}</div>
       </div>
       <div className={classes["home-section"]}>
-        <h3>Hotels</h3>
+        <h3 className={classes["section-title"]}>Hotels</h3>
         <div className={classes["section-list"]}>{hotelList}</div>
       </div>
     </div>

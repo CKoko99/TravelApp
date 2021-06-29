@@ -1,6 +1,7 @@
 .pagecard img {
   width: 30vw;
   cursor: pointer;
+  box-shadow: 0px 2px 5px 0px rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 20%) !important;
 }
 .pagecard .title {
   cursor: pointer;
@@ -10,6 +11,11 @@
 }
 .pagecard {
   display: flex;
+  padding: 1em;
+  background-color: rgb(255, 238, 238);
+  margin: 1em auto;
+  border: solid 1px black;
+  box-shadow: 0px 2px 5px 0px rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 20%) !important;
 }
 .text-section {
   margin: 0.5em auto auto 2em;
@@ -28,4 +34,33 @@
 
 .Rows {
   margin-top: 1em;
+}
+
+@media only screen and (max-width: 900px) {
+  .title{
+    font-size: 1.5em;
+    text-align: center;
+  }
+  .text-section{
+    margin: auto;
+    text-align: center;
+  }
+  .stars-row{
+    margin: auto auto 1em;
+  }
+  .desc{
+    font-size: 1em;
+  }
+  .pagecard {
+    display: flex;
+    flex-direction: column;
+    margin: 1em auto;
+  }
+  .pagecard img{
+    width: 100%;
+  }
+  .pagecard .img-section{
+    width: 90%;
+    margin: auto;
+  }
 }
