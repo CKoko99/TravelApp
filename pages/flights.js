@@ -6,16 +6,17 @@ function Flights(){
     const flights = useSelector((state) => state.flights.flightsList);
     console.log(flights)
     const flightList = flights.map((item) => {
-        return <Link key={item.id} href={`/flight/${item.id}`}>
+        return(
         <Pagecard
+        type="flight"
+        id={item.id}
         key={item.id}
           desc={item.desc}
           rating={item.rating}
           title={item.title}
           img={item.imgs[0]}
         />
-      </Link>
-      });
+      )})
     return<>{flightList}</>
 }
 

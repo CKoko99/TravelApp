@@ -1,3 +1,31 @@
-.pagecard img{
-    width: 30vw;
+.pagecard img {
+  width: 30vw;
+  cursor: pointer;
+}
+.pagecard .title {
+  cursor: pointer;
+}
+.pagecard .desc {
+  cursor: pointer;
+}
+.pagecard {
+  display: flex;
+}
+.text-section {
+  margin: 0.5em auto auto 2em;
+}
+.title {
+  font-size: 2.5vw;
+}
+.desc {
+  font-size: 1.3vw;
+}
+.stars-row {
+  display: flex;
+  height: 1em;
+  width: 5em;
+}
+
+.Rows {
+  margin-top: 1em;
 }

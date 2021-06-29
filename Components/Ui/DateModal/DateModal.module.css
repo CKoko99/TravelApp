@@ -1,0 +1,62 @@
+.plan-modal-background {
+  background-color: rgba(23, 23, 23, 0.58);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+}
+.plan-modal {
+  text-align: center;
+  background-color: white;
+  margin: auto;
+  margin-top: 5em;
+  padding: 5em;
+  width: 80%;
+  z-index: 15;
+  border-radius: 25px;
+  box-shadow: 0px 2px 5px 0px rgb(0 0 0 / 80%), 0 6px 20px 0 rgb(0 0 0 / 79%) !important;
+}
+.change-btn {
+  display: block;
+  margin: 0 auto 1em;
+  padding: 1em;
+}
+.dates {
+  display: flex;
+  justify-content: space-around;
+  width: 70%;
+  margin: auto;
+}
+.date {
+  padding: 1em;
+}
+
+.title{
+  font-size: 2.5vw;
+  text-align: center;
+}
+.date-text{
+  padding: 1em;
+}
+.date-selector{
+  display: flex;
+  justify-content: center;
+}
+
+.date-selector input{
+  align-self: center;
+}
+.plan-modal button, .change-btn{
+  font-weight: bold;
+  border-radius: 15px;
+  padding: 1em;
+  width: 30%;
+  margin: 1em;
+  border: none;
+  box-shadow: 0px 2px 5px 0px rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 20%) !important;
+}
+.change-btn{
+  margin: 1em auto;
+}

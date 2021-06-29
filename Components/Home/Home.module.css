@@ -5,7 +5,9 @@
 .home-section{
     text-align: left;
 }
-
+.section-list::-webkit-scrollbar {
+    display: none;
+  }
 .section-list{
     display: flex;
     overflow: scroll;

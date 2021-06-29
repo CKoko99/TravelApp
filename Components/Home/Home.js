@@ -23,7 +23,7 @@ function Home() {
   });
   const hotelList = hotels.map((item) => {
     return (
-      <HomeItem type="hotel" key={item.id} rating={item.rating} title={item.title} img={item.imgs[0]} />
+      <HomeItem type="hotel" id={item.id} key={item.id} rating={item.rating} title={item.title} img={item.imgs[0]} />
     );
   });
   return (

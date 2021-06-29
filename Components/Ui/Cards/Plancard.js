@@ -42,24 +42,17 @@ function Pagecard(props) {
   return (
     <div onClick={props.onClick} className={classes["pagecard"]}>
       <div className={classes["img-section"]}>
-      <Link href={`/${props.type}/${props.id}`}>
         <img
           className={classes["home-img"]}
           alt={props.title}
           src={props.img}
         />
-        </Link>
       </div>
       <div className={classes["text-section"]}>
-      <Link href={`/${props.type}/${props.id}`}>
         <div className={classes["title"]}>{props.title}</div>
-        </Link>
-        <Link href={`/${props.type}/${props.id}`}>
-
         <div className={classes["desc"]}>
           <div>{props.desc.substring(0, 249)}...</div>
         </div>
-        </Link>
         <div className={classes.Rows}>
           {rating[0] != "New Listing" && (
             <div className={classes["stars-row"]}>{rating}</div>

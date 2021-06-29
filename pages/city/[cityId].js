@@ -1,4 +1,4 @@
-import Pagecard from "../../Components/Ui/Cards/Pagecard";
+import Detailspage from "../../Components/Detailspage/Detailspage";
 import { db } from "../_app";
 
 export async function getStaticPaths() {
@@ -29,8 +29,6 @@ export async function getStaticPaths() {
     });}catch(e){
 
     }
-    console.log("the paths")
-    console.log(paths)
   return {
     paths,
     fallback: false,
@@ -71,7 +69,7 @@ export async function getStaticProps(context) {
 }
 
 function CityDetails(props) {
-  return  <Pagecard desc={props.City.desc} rating={props.City.rating} title={props.City.title} img={props.City.imgs[0]} />
+  return  <Detailspage desc={props.City.desc} rating={props.City.rating} title={props.City.title} imgs={props.City.imgs} />
 
 }
 export default CityDetails;

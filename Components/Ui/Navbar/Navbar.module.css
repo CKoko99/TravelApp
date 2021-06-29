@@ -1,6 +1,6 @@
 
 .Navbar{
-    font-size: 1.5em;
+    font-size: 1vw;
 }
 .top-section{
     display: flex;
@@ -11,8 +11,7 @@
 }
 .section{
     display: flex;
-    background-color: white;
-    justify-content: space-evenly;
+    justify-content:space-evenly;
     width: 85%;
     text-align: center;
     margin: auto;
@@ -21,9 +20,10 @@
     background-color: rgb(210, 210, 210);
 }
 .bottom-item {
-    padding: 10px 15px;
+    padding: 1em 1.5em;
     color: white;
-    border-right: 1px solid white;
+    font-weight: bold;
+
 }
 .Navbar a{
     text-decoration: none;
@@ -38,6 +38,7 @@
 }
 .mobile{
     display: none;
+    z-index: 5;
 }
 .ham{
     width: 2em;
@@ -83,3 +84,7 @@ a .ham:hover{
     }
 
   }
+
+.Navbar, .bottom-item{
+    background-color: rgb(255, 234, 234);
+}

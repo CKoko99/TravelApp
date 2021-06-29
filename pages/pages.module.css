@@ -1,0 +1,15 @@
+.page-list {
+  padding-top: 2em;
+  width: 85%;
+  margin: auto;
+}
+.title{
+  text-align: center;
+  font-size: 3.5vw;
+  padding-bottom: 1em;
+}
+@media only screen and (max-width: 900px) {
+  .page-list {
+    padding-top: 5em;
+  }
+}
