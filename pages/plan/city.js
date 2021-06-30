@@ -52,6 +52,7 @@ function Plancity() {
         onClick={() => {
           clicked(item);
         }}
+        key={item.id}
         price={item.price}
         type="city"
         desc={item.desc}

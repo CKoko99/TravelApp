@@ -81,7 +81,7 @@ function Admin() {
             step=".01"
             min=".5"
             max="3"
-            class="slider"
+            className="slider"
             id="myRange"
           ></input>
         </>

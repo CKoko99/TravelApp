@@ -39,6 +39,7 @@ function Planrental() {
         onClick={() => {
           clicked(item);
         }}
+        key={item.id}
         desc={item.desc}
         rating={item.rating}
         title={item.title}

@@ -37,6 +37,7 @@ function Planflight() {
         onClick={() => {
           clicked(item);
         }}
+        key={item.id}
         type="flight"
         price={item.price}
         desc={item.desc}
