@@ -2,7 +2,7 @@ import classes from "./Pagecard.module.css";
 import Image from "next/image";
 import dollar from "../../../Images/Icons/dollar.png";
 import { useRouter } from "next/dist/client/router";
-import Link from "next/Link";
+import Link from "next/link";
 
 function priceCalc(number) {
   if (number <= 0.6) {

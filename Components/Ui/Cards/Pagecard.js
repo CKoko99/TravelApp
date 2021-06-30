@@ -2,7 +2,7 @@ import classes from "./Pagecard.module.css";
 import Image from "next/image";
 import Star from "../../../Images/Icons/Star.png";
 import EmptyStar from "../../../Images/Icons/EmptyStar.png";
-import Link from "next/Link";
+import Link from "next/link";
 import dollar from "../../../Images/Icons/dollar.png";
 function priceCalc(number) {
   if (number <= 0.6) {

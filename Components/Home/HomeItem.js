@@ -2,7 +2,7 @@ import Image from "next/image";
 import classes from "./HomeItem.module.css";
 import Star from "../../Images/Icons/Star.png";
 import EmptyStar from "../../Images/Icons/EmptyStar.png";
-import Link from "next/Link";
+import Link from "next/link";
 
 function HomeItem(props) {
   let rating = "";

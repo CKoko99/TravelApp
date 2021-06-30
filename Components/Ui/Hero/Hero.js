@@ -1,6 +1,4 @@
-import Image from "next/image";
 import classes from "./Hero.module.css";
-import hero from "./hero.jpeg";
 import { useState } from "react";
 
 import Datemodal from "../DateModal/DateModal";

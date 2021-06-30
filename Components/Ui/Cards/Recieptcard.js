@@ -1,8 +1,5 @@
 import classes from "./Pagecard.module.css";
 import Image from "next/image";
-import Star from "../../../Images/Icons/Star.png";
-import EmptyStar from "../../../Images/Icons/EmptyStar.png";
-import Link from "next/Link";
 import dollar from "../../../Images/Icons/dollar.png";
 import { useRouter } from "next/dist/client/router";
 function priceCalc(number) {
