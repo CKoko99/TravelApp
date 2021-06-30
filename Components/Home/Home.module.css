@@ -1,22 +1,23 @@
-.home{
-    width: 90%;
-    margin: 5em auto;
+.home {
+  width: 90%;
+  margin: 2em auto 1em;
 }
-.home-section{
-    text-align: left;
+.home-section {
+  text-align: left;
 }
 .section-list::-webkit-scrollbar {
-    display: none;
-  }
-.section-list{
-    display: flex;
-    overflow: scroll;
+  display: none;
 }
-.section-title{
-    font-size: 2vw;
-    padding: 0 .3em;
+.section-list {
+  display: flex;
+  overflow: scroll;
+}
+.section-title {
+  font-size: 2vw;
+  padding: 0 0.3em;
 }
 @media only screen and (max-width: 900px) {
-    .section-title{
-      font-size: 1em;  }
+  .section-title {
+    font-size: 1em;
   }
+}

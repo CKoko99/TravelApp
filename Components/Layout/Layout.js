@@ -12,6 +12,7 @@ import {
   rentalActions,
   savedPlanActions,
 } from "../../store/store";
+import classes from "./Layout.module.css";
 
 function Layout(props) {
   const flightDispatch = useDispatch(flightActions);
@@ -192,9 +193,11 @@ function Layout(props) {
   }, []);
   return (
     <>
-      <Navbar />
-      {props.children}
-      <Footer />
+      <div className={classes.app}>
+        <Navbar />
+        {props.children}
+        <Footer />
+      </div>
     </>
   );
 }
