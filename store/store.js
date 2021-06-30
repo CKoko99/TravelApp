@@ -7,6 +7,8 @@ const planInitialState = {
   startDate: null,
   endDate: null,
   days: 0,
+  justSaved: false,
+  justCancelled: false,
 };
 const planSlice = createSlice({
   name: "plan",
@@ -48,13 +50,13 @@ const planSlice = createSlice({
       localStorage.setItem("SavedStartDate", state.startDate);
       localStorage.setItem("SavedEndDate", state.endDate);
       localStorage.setItem("SavedDays", state.days);
-      localStorage.removeItem("RentalID")
-      localStorage.removeItem("HotelID")
-      localStorage.removeItem("CityID")
-      localStorage.removeItem("FlightID")
-      localStorage.removeItem("StartDate")
-      localStorage.removeItem("EndDate")
-      localStorage.removeItem("Days")
+      localStorage.removeItem("RentalID");
+      localStorage.removeItem("HotelID");
+      localStorage.removeItem("CityID");
+      localStorage.removeItem("FlightID");
+      localStorage.removeItem("StartDate");
+      localStorage.removeItem("EndDate");
+      localStorage.removeItem("Days");
       state.city = {};
       state.hotel = {};
       state.flight = {};
@@ -89,6 +91,37 @@ const savedPlanSlice = createSlice({
     },
     setDays(state, action) {
       state.days = action.payload;
+    },
+    setJustSaved(state, action) {
+      if (action.payload === true) {
+        state.justSaved = true;
+      } else {
+        state.justSaved = false;
+      }
+    },
+    setJustCancelled(state, action) {
+      if (action.payload === true) {
+        state.justCancelled = true;
+      } else {
+        state.justCancelled = false;
+      }
+    },
+    cancel(state) {
+      localStorage.removeItem("SavedHotelID");
+      localStorage.removeItem("SavedRentalID");
+      localStorage.removeItem("SavedCityID");
+      localStorage.removeItem("SavedFlightID");
+      localStorage.removeItem("SavedStartDate");
+      localStorage.removeItem("SavedEndDate");
+      localStorage.removeItem("SavedDays");
+      state.city = {};
+      state.hotel = {};
+      state.flight = {};
+      state.rental = {};
+      state.startDate = null;
+      state.endDate = null;
+      state.days = 0;
+      state.justSaved = false;
     },
   },
 });
@@ -209,7 +242,7 @@ const store = configureStore({
     flights: flightsSlice.reducer,
     rentals: rentalsSlice.reducer,
     plan: planSlice.reducer,
-    savedPlan: savedPlanSlice.reducer
+    savedPlan: savedPlanSlice.reducer,
   },
 });
 

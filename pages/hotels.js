@@ -7,6 +7,7 @@ function Hotels(){
     const hotelList = Hotels.map((item) => {
         return (<Pagecard
         type="hotel"
+        price={item.price}
         id={item.id}
         key={item.id}
           desc={item.desc}

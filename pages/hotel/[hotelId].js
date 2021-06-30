@@ -1,3 +1,4 @@
+import Detailspage from "../../Components/Detailspage/Detailspage";
 import Pagecard from "../../Components/Ui/Cards/Pagecard";
 import { db } from "../_app";
 
@@ -67,7 +68,7 @@ export async function getStaticProps(context) {
 }
 
 function HotelDetails(props) {
-  return  <Pagecard desc={props.City.desc} rating={props.City.rating} title={props.City.title} img={props.City.imgs[0]} />
+  return  <Detailspage type="hotel" desc={props.City.desc} price={props.City.price}  rating={props.City.rating} title={props.City.title} imgs={props.City.imgs} />
 
 }
 export default HotelDetails;

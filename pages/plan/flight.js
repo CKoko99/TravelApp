@@ -20,6 +20,11 @@ function Planflight() {
     }
   });
   function clicked(text) {
+    if (selectedFlight) {
+      window.scrollTo(0, 100);
+    } else {
+      window.scroll(0, 0);
+    }
     setSelectedFlight(text);
   }
   function selectFlightHandler() {
@@ -32,6 +37,8 @@ function Planflight() {
         onClick={() => {
           clicked(item);
         }}
+        type="flight"
+        price={item.price}
         desc={item.desc}
         rating={item.rating}
         title={item.title}
@@ -41,23 +48,28 @@ function Planflight() {
   });
   return (
     <>
-        <div className={classes.plan}>
+      <div className={classes.plan}>
+        {selectedFlight && (
+          <div className={classes.details}>
+            <Detailspage
+              type="flight"
+              price={selectedFlight.price * planSelector.city.price}
+              desc={selectedFlight.desc}
+              rating={selectedFlight.rating}
+              title={selectedFlight.title}
+              imgs={selectedFlight.imgs}
+              planning={true}
+            />
+          </div>
+        )}
+        {selectedFlight && (
+          <div className={classes["plan-button"]} onClick={selectFlightHandler}>
+            Continue to Hotels
+          </div>
+        )}
+        <div className={classes["plan-title"]}>Choose Your Airline</div>
 
-      {selectedFlight && (<div className={classes.details}>
-        <Detailspage
-          desc={selectedFlight.desc}
-          rating={selectedFlight.rating}
-          title={selectedFlight.title}
-          imgs={selectedFlight.imgs}
-          planning={true}
-        /></div>
-      )}
-      {selectedFlight && (
-        <div className={classes["plan-button"]} onClick={selectFlightHandler}>Choose a Hotel</div>
-      )}
-            <div className={classes["plan-title"]}>Choose Your Airline</div>
-
-      {flightList}
+        {flightList}
       </div>
     </>
   );

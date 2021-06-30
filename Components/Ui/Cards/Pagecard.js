@@ -3,8 +3,28 @@ import Image from "next/image";
 import Star from "../../../Images/Icons/Star.png";
 import EmptyStar from "../../../Images/Icons/EmptyStar.png";
 import Link from "next/Link";
-
+import dollar from '../../../Images/Icons/dollar.png'
+function priceCalc(number){
+  if(number <= .6){
+    return 1
+  }else if(number <= 1.2){
+    return 2
+  }else if(number <= 1.8){
+    return 3
+  }else if(number <= 2.4){
+    return 4
+  }else {
+    return 5
+  }
+}
 function Pagecard(props) {
+  const dollars = []
+  if(props.type === "city"){
+    const num = priceCalc(props.price)
+    for(let i = 1; i <= num; i++){
+      dollars.push(<Image src={dollar} height={15} width={15}/>)
+    }
+  }
   let rating = [];
   const filledStars = [];
   const EmptyStars = [];
@@ -61,12 +81,29 @@ function Pagecard(props) {
         </div>
         </Link>
         <div className={classes.Rows}>
-          {rating[0] != "New Listing" && (
-            <div className={classes["stars-row"]}>{rating}</div>
+        {rating[0] != "New Listing" && (
+            <div className={classes["small-text-rows"]}>
+              <div className={classes["small-text"]}>Ratings: </div>
+              <div className={classes["stars-row"]}>{rating}</div>
+              </div>
           )}
           {rating[0] == "New Listing" && (
-            <div >{rating}</div>
-          )}
+            <div className={classes["small-text-rows"]}>
+            <div className={classes["small-text"]}>{rating} </div></div>
+            )}
+          {props.type === "city"&& <div className={classes["small-text-rows"]} >
+            <div className={classes["price"]}>Price Ratings: {dollars}
+            </div>
+        </div>}
+          {props.type === "flight"&& <div className={classes["small-text-rows"]} >
+            <div className={classes["price"]}>From ${props.price} per ticket
+            </div>
+        </div>}
+          {(props.type === "hotel" || props.type === "rental")&& <div className={classes["small-text-rows"]} >
+            <div className={classes["price"]}>From ${props.price} per night
+            </div>
+        </div>}
+         
         </div>
       </div>
     </div>

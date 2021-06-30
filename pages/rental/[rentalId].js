@@ -67,7 +67,7 @@ export async function getStaticProps(context) {
 }
 
 function RentalDetails(props) {
-  return  <Detailspage desc={props.City.desc} rating={props.City.rating} title={props.City.title} imgs={props.City.imgs} />
+  return  <Detailspage type="rental" desc={props.City.desc} price={props.City.price}  rating={props.City.rating} title={props.City.title} imgs={props.City.imgs} />
 
 }
 export default RentalDetails;

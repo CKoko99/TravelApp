@@ -67,7 +67,7 @@ export async function getStaticProps(context) {
 }
 
 function FlightDetails(props) {
-  return  <Detailspage desc={props.City.desc} rating={props.City.rating} title={props.City.title} imgs={props.City.imgs} />
+  return  <Detailspage type="flight" desc={props.City.desc} price={props.City.price}  rating={props.City.rating} title={props.City.title} imgs={props.City.imgs} />
 
 }
 export default FlightDetails;

@@ -1,4 +1,4 @@
-.pagecard img {
+.img-section img {
   width: 30vw;
   cursor: pointer;
   box-shadow: 0px 2px 5px 0px rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 20%) !important;
@@ -26,6 +26,12 @@
 .desc {
   font-size: 1.3vw;
 }
+.planned-card .title {
+  cursor: pointer;
+}
+.pagecard .img-section {
+  align-self: center;
+}
 .stars-row {
   display: flex;
   height: 1em;
@@ -35,20 +41,82 @@
 .Rows {
   margin-top: 1em;
 }
-
+.small-text-rows {
+  padding-bottom: 0.7em;
+  display: flex;
+  align-items: center;
+}
+.small-text {
+  margin: 0 1em 0 0;
+}
+.price {
+  padding-bottom: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.remove-button {
+  padding: 1em;
+  background-color: #99621e;
+  color: white;
+  width: fit-content;
+  cursor: pointer;
+}
+.receipt-card .img-section {
+  width: 40%;
+  align-self: center;
+}
+.receipt-card .title {
+  font-size: 1vw;
+  font-weight: 600;
+}
+.receipt-card .price {
+  font-size: 1vw;
+}
+.receipt-card .small-text-rows {
+  padding: 0;
+}
+.receipt-card {
+  display: flex;
+  background-color: white;
+  border: 1px solid rgb(57, 57, 57);
+  padding: 1em;
+  margin-left: 1em;
+  margin-top: 1em;
+  box-shadow: 0px 2px 5px 0px rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 20%) !important;
+}
+.receipt-card .img-section img {
+  width: 100%;
+}
 @media only screen and (max-width: 900px) {
-  .title{
+  .pagecard img {
+    width: 100%;
+  }
+  .receipt-card .title {
+    font-size: 1em;
+  }
+  .receipt-card {
+    flex-direction: column;
+    margin-left: 0;
+  }
+  .receipt-card .img-section {
+    width: 100%;
+  }
+  .receipt-card .price {
+    font-size: 1em;
+  }
+  .receipt-card .remove-button {
+    margin: auto;
+  }
+  .title {
     font-size: 1.5em;
     text-align: center;
   }
-  .text-section{
+  .text-section {
     margin: auto;
     text-align: center;
   }
-  .stars-row{
-    margin: auto auto 1em;
-  }
-  .desc{
+  .desc {
     font-size: 1em;
   }
   .pagecard {
@@ -56,11 +124,18 @@
     flex-direction: column;
     margin: 1em auto;
   }
-  .pagecard img{
+  .img-sections img {
     width: 100%;
   }
-  .pagecard .img-section{
+  .pagecard .img-section {
     width: 90%;
     margin: auto;
+  }
+  .small-text-rows {
+    justify-content: center;
+    padding: 0;
+  }
+  .small-text {
+    margin: 0 1em 0 0;
   }
 }

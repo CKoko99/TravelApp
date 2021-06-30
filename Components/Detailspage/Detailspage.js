@@ -3,11 +3,30 @@ import Image from "next/image";
 import Star from "../../Images/Icons/Star.png";
 import EmptyStar from "../../Images/Icons/EmptyStar.png";
 import Link from "next/Link";
+import dollar from "../../Images/Icons/dollar.png";
 import { useState } from "react";
-
+function priceCalc(number) {
+  if (number <= 0.6) {
+    return 1;
+  } else if (number <= 1.2) {
+    return 2;
+  } else if (number <= 1.8) {
+    return 3;
+  } else if (number <= 2.4) {
+    return 4;
+  } else {
+    return 5;
+  }
+}
 function Detailspage(props) {
   const [currentSlide, setCurrentSlide] = useState(1);
-
+  const dollars = [];
+  if (props.type === "city") {
+    const num = priceCalc(props.price);
+    for (let i = 1; i <= num; i++) {
+      dollars.push(<Image src={dollar} height={15} width={15} />);
+    }
+  }
   let rating = [];
   const filledStars = [];
   const EmptyStars = [];
@@ -104,17 +123,34 @@ function Detailspage(props) {
         )}
         {rating[0] == "New Listing" && <div>{rating}</div>}
       </div>
+      {props.type == "city" && (
+        <div className={classes.price}>Price Rating: {dollars}</div>
+      )}
+      {props.type === "flight" && (
+        <div className={classes["small-text-rows"]}>
+          <div className={classes["price"]}>
+            {!props.planning && <>From</>} ${props.price} per ticket
+          </div>
+        </div>
+      )}
+      {(props.type === "hotel" || props.type === "rental") && (
+        <div className={classes["small-text-rows"]}>
+          <div className={classes["price"]}>
+            {" "}
+            {!props.planning && <>From</>} ${props.price} per night
+          </div>
+        </div>
+      )}
       <div className={classes["text-section"]}>
         <div className={classes["desc"]}>
           <div>{props.desc}</div>
         </div>
       </div>
-      {!props.planning &&(
-
+      {!props.planning && (
         <Link href={"/plan/city"}>
-        <div className={classes["plan-button"]}>Plan a Trip!</div>
-      </Link>
-        )}
+          <div className={classes["plan-button"]}>Plan a Trip!</div>
+        </Link>
+      )}
     </div>
   );
 }

@@ -39,7 +39,7 @@ function Navbar() {
               <Link href="/rentals">Car Rentals</Link>
             </div>
             <div onClick={closeModalHandler} className={classes["bottom-item"]}>
-              <Link href="/plannedtrip">Trip Details</Link>
+              <Link href="/plannedtrip">Planned Trip</Link>
             </div>
             <div onClick={closeModalHandler} className={classes["bottom-item"]}>
               <Link href="/cart">Cart</Link>
@@ -59,42 +59,28 @@ function Navbar() {
             <div className={classes["bottom-item"]}>
               <Link href="/">Ck Trips</Link>
             </div>
-              <Link href="/plan/city">
-            <div className={classes["bottom-item"]}>
-                Plan A Trip!
-            </div>
-                </Link>
+            <Link href="/plan/city">
+              <div className={classes["bottom-item"]}>Plan A Trip!</div>
+            </Link>
 
-              <Link href="/cities">
-            <div className={classes["bottom-item"]}>
-                Cities
-            </div>
-                </Link>
-              <Link href="/flights">
-            <div className={classes["bottom-item"]}>
-                Airlines
-            </div>
-                </Link>
-              <Link href="/hotels">
-            <div className={classes["bottom-item"]}>
-                Hotels
-            </div>
-                </Link>
-              <Link href="/rentals">
-            <div className={classes["bottom-item"]}>
-                Rental Services
-            </div>
-                </Link>
-              <Link href="/plannedtrip">
-            <div className={classes["bottom-item"]}>
-                Planned Trips
-            </div>
-                </Link>
-              <Link href="/cart">
-            <div className={classes["bottom-item"]}>
-                Cart
-            </div>
-                </Link>
+            <Link href="/cities">
+              <div className={classes["bottom-item"]}>Cities</div>
+            </Link>
+            <Link href="/flights">
+              <div className={classes["bottom-item"]}>Airlines</div>
+            </Link>
+            <Link href="/hotels">
+              <div className={classes["bottom-item"]}>Hotels</div>
+            </Link>
+            <Link href="/rentals">
+              <div className={classes["bottom-item"]}>Rental Services</div>
+            </Link>
+            <Link href="/plannedtrip">
+              <div className={classes["bottom-item"]}>Planned Trips</div>
+            </Link>
+            <Link href="/cart">
+              <div className={classes["bottom-item"]}>Cart</div>
+            </Link>
           </div>
         </div>
       </div>

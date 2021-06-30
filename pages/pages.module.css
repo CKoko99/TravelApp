@@ -3,9 +3,12 @@
   width: 85%;
   margin: auto;
 }
-.title{
+.title {
   text-align: center;
   font-size: 3.5vw;
+}
+.cart {
+  border: 1px solid black;
 }
 @media only screen and (max-width: 900px) {
   .page-list {

@@ -1,105 +1,108 @@
-
-.Navbar{
-    font-size: 1vw;
+.Navbar {
+  font-size: 1vw;
 }
-.top-section{
-    display: flex;
-    justify-content: space-between;
+.top-section {
+  display: flex;
+  justify-content: space-between;
 }
-.top-subsection{
-    display: flex;
+.top-subsection {
+  display: flex;
 }
-.section{
-    display: flex;
-    justify-content: space-evenly;
-    width: 100%;
-    text-align: center;
-    margin: auto;
+.section {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  text-align: center;
+  margin: auto;
 }
-.bottom-item:hover{
-    background-color: rgb(210, 210, 210);
+.bottom-item:hover {
+  background-color: rgb(210, 210, 210);
 }
 .bottom-item {
-    padding: 1em 1.5em;
-    color: white;
-    font-weight: bold;
+  padding: 1em 1.5em;
+  color: white;
+  font-weight: bold;
 }
-.Navbar a{
-    text-decoration: none;
-    color: black;
+.Navbar a {
+  text-decoration: none;
+  color: black;
 }
-.bottom-item a{
-    text-decoration: none;
-    color: black;
+.bottom-item a {
+  text-decoration: none;
+  color: black;
 }
-.Navbar a:visited{
-    text-decoration: none;
+.Navbar a:visited {
+  text-decoration: none;
 }
-.mobile{
-    display: none;
-    z-index: 5;
-    background-color: rgb(255, 234, 234);
+.mobile {
+  display: none;
+  z-index: 5;
+  background-color: rgb(255, 234, 234);
 }
-.ham{
-    width: 2em;
-    margin: 1em;
+.ham {
+  width: 2em;
+  margin: 1em;
+  cursor: pointer;
 }
-.mobile-sections{
-    display: flex;
-    justify-content: space-between;
+.mobile-sections {
+  display: flex;
+  justify-content: space-between;
 }
-.modal{
-    position: fixed;
-    left: 0;
-    right: 0;
-    top: 0;
-    z-index: 100;
-    height: 20000px;
-    background-color: rgb(84, 84, 84);
-    color: white;
+.modal {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 100;
+  height: 20000px;
+  background-color: rgb(255 255 255);
+  color: white;
 }
-a .ham:hover{
-    cursor: pointer;
+a .ham:hover {
+  cursor: pointer;
 }
-.modal-exit{
-    text-align: right;
-    margin: 1em 1em .5em;
+.modal-exit {
+  text-align: right;
+  margin: 1em 1em 0.5em;
+  color: black;
+  cursor: pointer;
 }
-.bottom-item{
-    color: black;
-    cursor: pointer;
+.bottom-item {
+  color: black;
+  cursor: pointer;
 }
 @media only screen and (max-width: 900px) {
-    .desktop{
-      display: none;
-    }
-    .mobile{
-        display: block;
-        margin: auto;
-        position: fixed;
-        width: 100%;
-        top: 0;
-    }
-    .Navbar{
-        position: fixed;
-        width: 90%;
-        z-index: 3;
-        left: 0;
-        right: 0;
-        padding: 0  5vw;
-    }
-    .section{
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-    }
-    .bottom-item{
-        width: 80%;
-    text-align: right;
-    }
-
+  .desktop {
+    display: none;
   }
+  .mobile {
+    display: block;
+    margin: auto;
+    position: fixed;
+    width: 100%;
+    top: 0;
+  }
+  .Navbar {
+    position: fixed;
+    width: 90%;
+    z-index: 3;
+    left: 0;
+    right: 0;
+    padding: 0 5vw;
+  }
+  .section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+  .bottom-item {
+    width: 100%;
+    text-align: right;
+    border-bottom: #c5c5c5 solid 1px;
+  }
+}
 
-.Navbar, .bottom-item{
-    background-color: rgb(255, 234, 234);
+.Navbar,
+.bottom-item {
+  background-color: rgb(255, 234, 234);
 }

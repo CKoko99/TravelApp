@@ -1,10 +1,12 @@
-.footer{
-    background-color: black;
-    height: 300px;
-    position: absolute;
-    left: 0;
-    right: 0;
+.footer {
+  background-color: black;
+  height: 300px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  text-align: center;
+  padding: 1em;
 }
-.footer-section a{
-    color: white;
+.footer-section a {
+  color: white;
 }

@@ -9,6 +9,7 @@ function Flights(){
         return(
         <Pagecard
         type="flight"
+        price={item.price}
         id={item.id}
         key={item.id}
           desc={item.desc}

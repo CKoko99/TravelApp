@@ -23,6 +23,11 @@ function Planhotel() {
     }
   });
   function clicked(text) {
+    if (selectedHotel) {
+      window.scrollTo(0, 100);
+    } else {
+      window.scroll(0, 0);
+    }
     setSelectedHotel(text);
   }
   function selectHotelHandler() {
@@ -36,6 +41,8 @@ function Planhotel() {
           onClick={() => {
             clicked(item);
           }}
+          type="hotel"
+          price={item.price}
           desc={item.desc}
           rating={item.rating}
           title={item.title}
@@ -48,23 +55,27 @@ function Planhotel() {
   });
   return (
     <>
-            <div className={classes.plan}>
-      {selectedHotel && (
-        <div className={classes.details}>
-        <Detailspage
-          desc={selectedHotel.desc}
-          rating={selectedHotel.rating}
-          title={selectedHotel.title}
-          imgs={selectedHotel.imgs}
-          planning={true}
-        /></div>
-      )}
-      {selectedHotel && (
-        <div className={classes["plan-button"]} onClick={selectHotelHandler}>Choose a Rental Service</div>
-      )}
-        <div className={classes["plan-title"]}>
-          Choose Your Hotel</div>
-      {hotelList}
+      <div className={classes.plan}>
+        {selectedHotel && (
+          <div className={classes.details}>
+            <Detailspage
+              type="hotel"
+              price={selectedHotel.price}
+              desc={selectedHotel.desc}
+              rating={selectedHotel.rating}
+              title={selectedHotel.title}
+              imgs={selectedHotel.imgs}
+              planning={true}
+            />
+          </div>
+        )}
+        {selectedHotel && (
+          <div className={classes["plan-button"]} onClick={selectHotelHandler}>
+            Continue to Rental Service
+          </div>
+        )}
+        <div className={classes["plan-title"]}>Choose Your Hotel</div>
+        {hotelList}
       </div>
     </>
   );

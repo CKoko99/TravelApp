@@ -30,25 +30,26 @@
   margin: auto;
 }
 .date {
-  padding: .5em;
+  padding: 0.5em;
 }
 
-.title{
+.title {
   font-size: 2.5vw;
   text-align: center;
 }
-.date-text{
+.date-text {
   padding: 1em;
 }
-.date-selector{
+.date-selector {
   display: flex;
   justify-content: center;
 }
 
-.date-selector input{
+.date-selector input {
   align-self: center;
 }
-.plan-modal button, .change-btn{
+.plan-modal button,
+.change-btn {
   font-weight: bold;
   border-radius: 15px;
   padding: 1em;
@@ -57,22 +58,35 @@
   border: none;
   box-shadow: 0px 2px 5px 0px rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 20%) !important;
 }
-.change-btn{
+.change-btn {
   margin: 1em auto;
 }
+.success-button {
+  font-family: inherit;
+  text-align: center;
+  padding: 1em;
+  margin: 1em auto;
+  width: 40%;
+  cursor: pointer;
+  background-color: #5f4bb6;
+  color: white;
+}
 @media only screen and (max-width: 900px) {
-  .change-btn{
+  .change-btn {
     width: 50%;
   }
-  .dates{
+  .dates {
     flex-direction: column;
     align-items: center;
   }
-  .plan-modal{
+  .plan-modal {
     width: 90%;
     padding: 3em;
   }
-  .title{
+  .title {
     font-size: 1.5em;
+  }
+  .success-button {
+    width: 90%;
   }
 }
