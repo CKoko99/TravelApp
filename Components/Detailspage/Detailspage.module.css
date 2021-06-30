@@ -7,8 +7,15 @@
 .title {
   font-size: 3.5vw;
 }
+.mySlides div {
+  overflow: visible !important;
+  position: static !important;
+}
 .slide-img {
-  width: 100%;
+  position: static !important;
+  max-height: none !important;
+  width: 100% !important;
+  height: auto !important;
   box-shadow: 0px 2px 5px 0px rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%) !important;
 }
 .price {

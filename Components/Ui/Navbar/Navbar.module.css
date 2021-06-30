@@ -106,3 +106,17 @@ a .ham:hover {
 .bottom-item {
   background-color: rgb(255, 234, 234);
 }
+.evildiv div {
+  overflow: visible !important;
+  position: static !important;
+}
+.evildiv .ham {
+  position: static !important;
+  max-height: none !important;
+  max-width: none !important;
+  min-height: 0 !important;
+  min-width: 0 !important;
+  width: 2em !important;
+  margin: 1em !important;
+  height: auto !important;
+}

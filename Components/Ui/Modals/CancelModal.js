@@ -19,7 +19,7 @@ function CancelModal(props) {
       setShowModal(true);
       planDispatch(savedPlanActions.setJustCancelled(false));
     }
-  }, [planSelector.justCancelled]);
+  }, [planSelector.justCancelled, planDispatch]);
 
   if (showModal) {
     return (

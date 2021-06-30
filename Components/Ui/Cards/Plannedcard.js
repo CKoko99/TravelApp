@@ -23,7 +23,7 @@ function Plannedcard(props) {
   if (props.type === "city") {
     const num = priceCalc(props.price);
     for (let i = 1; i <= num; i++) {
-      dollars.push(<Image src={dollar} height={15} width={15} />);
+      dollars.push(<Image alt="dollar" src={dollar} height={15} width={15} />);
     }
   }
   return (
@@ -31,11 +31,14 @@ function Plannedcard(props) {
       <div onClick={props.onClick} className={classes["receipt-card"]}>
         <Link href={`/${props.type}/${props.id}`}>
           <div className={classes["img-section"]}>
-            <img
-              className={classes["home-img"]}
-              alt={props.title}
-              src={props.img}
-            />
+            <div className={classes.evildiv}>
+              <Image
+                layout="fill"
+                className={classes["home-img"]}
+                alt={props.title}
+                src={props.img}
+              />
+            </div>
           </div>
         </Link>
         <div className={classes["text-section"]}>

@@ -24,7 +24,7 @@ function Detailspage(props) {
   if (props.type === "city") {
     const num = priceCalc(props.price);
     for (let i = 1; i <= num; i++) {
-      dollars.push(<Image src={dollar} height={15} width={15} />);
+      dollars.push(<Image alt="dollar" src={dollar} height={15} width={15} />);
     }
   }
   let rating = [];
@@ -39,7 +39,6 @@ function Detailspage(props) {
           width={25}
           height={23}
           className={classes.star}
-          key={i}
           alt="ratings"
           src={Star}
         />
@@ -51,7 +50,6 @@ function Detailspage(props) {
           key={"empty" + props.id + i}
           width={25}
           height={23}
-          key={i}
           className={classes.star}
           alt="ratings"
           src={EmptyStar}
@@ -85,13 +83,23 @@ function Detailspage(props) {
           key={img}
           className={`${classes["mySlides"]} ${classes["chosen"]} ${classes["fade"]}`}
         >
-          <img src={img} alt={props.title} className={classes["slide-img"]} />
+          <Image
+            layout={"fill"}
+            src={img}
+            alt={props.title}
+            className={classes["slide-img"]}
+          />
         </div>
       );
     } else {
       return (
         <div key={img} className={`${classes["mySlides"]} ${classes["fade"]}`}>
-          <img src={img} alt={props.title} className={classes["slide-img"]} />
+          <Image
+            layout={"fill"}
+            src={img}
+            alt={props.title}
+            className={classes["slide-img"]}
+          />
         </div>
       );
     }

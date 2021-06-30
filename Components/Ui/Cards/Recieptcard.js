@@ -24,17 +24,22 @@ function Receiptcard(props) {
   if (props.type === "city") {
     const num = priceCalc(props.price);
     for (let i = 1; i <= num; i++) {
-      dollars.push(<Image src={dollar} height={15} width={15} />);
+      dollars.push(
+        <Image alt={"dollar"} src={dollar} height={15} width={15} />
+      );
     }
   }
   return (
     <div onClick={props.onClick} className={classes["receipt-card"]}>
       <div className={classes["img-section"]}>
-        <img
-          className={classes["home-img"]}
-          alt={props.title}
-          src={props.img}
-        />
+        <div className={classes.evildiv}>
+          <Image
+            layout="fill"
+            className={classes["home-img"]}
+            alt={props.title}
+            src={props.img}
+          />
+        </div>
       </div>
       <div className={classes["text-section"]}>
         <div className={classes["title"]}>{props.title}</div>

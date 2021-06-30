@@ -88,9 +88,29 @@
 .receipt-card .img-section img {
   width: 100%;
 }
+.evildiv div {
+  overflow: visible !important;
+  position: static !important;
+}
+.evildiv img {
+  position: static !important;
+  max-height: none !important;
+  max-width: none !important;
+  width: 45vh !important;
+  height: auto !important;
+  box-shadow: 0px 2px 5px 0px rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%) !important;
+}
+.receipt-card .evildiv img {
+  position: static !important;
+  max-height: none !important;
+  max-width: none !important;
+  width: 100% !important;
+  height: auto !important;
+  box-shadow: 0px 2px 5px 0px rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%) !important;
+}
 @media only screen and (max-width: 900px) {
   .pagecard img {
-    width: 100%;
+    width: 100% !important;
   }
   .receipt-card .title {
     font-size: 1em;

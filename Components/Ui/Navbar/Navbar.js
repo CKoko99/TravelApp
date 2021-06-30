@@ -1,6 +1,9 @@
 import Link from "next/Link";
+import Image from "next/image";
 import { useState } from "react";
 import classes from "./Navbar.module.css";
+import home from "./homeic.svg";
+import ham from "./hamic.png";
 function Navbar() {
   const [modalOpen, setModalOpen] = useState(false);
   function closeModalHandler() {
@@ -87,20 +90,24 @@ function Navbar() {
       <div className={classes["mobile"]}>
         <div className={classes["mobile-sections"]}>
           <Link href="/">
-            <img
-              alt="home"
-              className={classes["ham"]}
-              src={
-                "https://each-day-counts.web.app/static/media/home.78c6e013.svg"
-              }
-            />
+            <div className={classes.evildiv}>
+              <Image
+                layout="fill"
+                alt="home"
+                className={classes["ham"]}
+                src={home}
+              />
+            </div>
           </Link>
-          <img
-            alt="ham"
-            onClick={openModalHandler}
-            className={classes["ham"]}
-            src={"https://courtneykoko.com/static/media/ham.976b5194.png"}
-          />
+          <div className={classes.evildiv}>
+            <Image
+              layout="fill"
+              alt="ham"
+              onClick={openModalHandler}
+              className={classes["ham"]}
+              src={ham}
+            />
+          </div>
         </div>
         {modal}
       </div>

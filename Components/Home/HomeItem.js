@@ -40,25 +40,25 @@ function HomeItem(props) {
   return (
     <div className={classes["home-item"]}>
       <Link href={`/${props.type}/${props.id}`}>
-        <img
-          className={classes["home-img"]}
-          alt={props.title}
-          src={props.img}
-          layout="fill"
-        />
+        <div className={classes["evildiv"]}>
+          <Image
+            className={classes["home-img"]}
+            alt={props.title}
+            src={props.img}
+            layout="fill"
+          />
+        </div>
       </Link>
       <div className={classes.Rows}>
         <div className={classes.title}>
-          <Link href={`/${props.type}/${props.id}`}>
-            {props.title}
-          </Link>
+          <Link href={`/${props.type}/${props.id}`}>{props.title}</Link>
         </div>
         <div className={classes.rating}>
           <div>{rating}</div>
 
-        <div className={classes.stars}>
-          {filledStars}
-          {EmptyStars}
+          <div className={classes.stars}>
+            {filledStars}
+            {EmptyStars}
           </div>
         </div>
       </div>
