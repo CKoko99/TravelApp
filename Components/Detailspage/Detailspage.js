@@ -35,6 +35,7 @@ function Detailspage(props) {
     for (let i = 1; i <= props.rating; i++) {
       filledStars.push(
         <Image
+          key={"filled" + props.id + i}
           width={25}
           height={23}
           className={classes.star}
@@ -47,6 +48,7 @@ function Detailspage(props) {
     for (let i = 1; i <= EmptyStarAmount; i++) {
       EmptyStars.push(
         <Image
+          key={"empty" + props.id + i}
           width={25}
           height={23}
           key={i}
@@ -63,8 +65,6 @@ function Detailspage(props) {
   }
   function changeSlideHandler(n) {
     const newSlide = currentSlide + n;
-
-    console.log("new slide" + newSlide);
     if (newSlide < 1) {
       setCurrentSlide(slides.length);
     } else if (newSlide > slides.length) {
@@ -82,6 +82,7 @@ function Detailspage(props) {
     if (counter == currentSlide) {
       return (
         <div
+          key={img}
           className={`${classes["mySlides"]} ${classes["chosen"]} ${classes["fade"]}`}
         >
           <img src={img} alt={props.title} className={classes["slide-img"]} />
@@ -89,7 +90,7 @@ function Detailspage(props) {
       );
     } else {
       return (
-        <div className={`${classes["mySlides"]} ${classes["fade"]}`}>
+        <div key={img} className={`${classes["mySlides"]} ${classes["fade"]}`}>
           <img src={img} alt={props.title} className={classes["slide-img"]} />
         </div>
       );

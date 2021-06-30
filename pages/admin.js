@@ -35,14 +35,14 @@ function Admin() {
   const adminCities = useSelector((state) => state.admin.cityList);
   const [priceInput, setPriceInput] = useState(
     <>
-      <label for="price">How Expensive?</label>
+      <label htmlFor="price">How Expensive?</label>
       <input
         ref={priceRef}
         type="range"
         step=".01"
         min=".5"
         max="3"
-        class="slider"
+        className="slider"
         id="myRange"
       ></input>
     </>
@@ -64,7 +64,7 @@ function Admin() {
     if (typeRef.current.value === "Flight") {
       setPriceInput(
         <>
-          <label for="price">Average Price Per Flight $</label>
+          <label htmlFor="price">Average Price Per Flight $</label>
           <input ref={priceRef} type="number" id="price" />
         </>
       );
@@ -74,7 +74,7 @@ function Admin() {
     if (typeRef.current.value === "City") {
       setPriceInput(
         <>
-          <label for="price">How Expensive?</label>
+          <label htmlFor="price">How Expensive?</label>
           <input
             ref={priceRef}
             type="range"
@@ -92,7 +92,7 @@ function Admin() {
     if (typeRef.current.value === "Hotel") {
       setPriceInput(
         <>
-          <label for="price">Average Price Per Day</label>
+          <label htmlFor="price">Average Price Per Day</label>
           <input ref={priceRef} type="number" id="price" />
         </>
       );
@@ -105,7 +105,7 @@ function Admin() {
               name={city.title}
               onChange={cityCheckedHandler}
             />
-            <label for={city.title}>{city.title}</label>{" "}
+            <label htmlFor={city.title}>{city.title}</label>{" "}
           </>
         );
       });
@@ -113,7 +113,7 @@ function Admin() {
     } else {
       setPriceInput(
         <>
-          <label for="price">Average Price Per Day</label>
+          <label htmlFor="price">Average Price Per Day</label>
           <input ref={priceRef} type="number" id="price" />
         </>
       );
@@ -185,7 +185,6 @@ function Admin() {
       markedCityList.forEach((city) => {
         markedCityNames.push(city.title);
       });
-      console.log(markedCityNames);
       setItemData({
         type: typeRef.current.value,
         title: titleRef.current.value,
@@ -200,6 +199,7 @@ function Admin() {
     }
     setPreviewItem(
       <Detailspage
+        key={1}
         title={titleRef.current.value}
         desc={descRef.current.value}
         planning={true}
@@ -208,7 +208,7 @@ function Admin() {
     );
     setReadyToPost(true);
   }
-  function resetForm() {
+  function resethtmlForm() {
     titleRef.current.value = "";
     priceRef.current.value = "";
     staffPickRef.current.value = "Yes";
@@ -220,139 +220,147 @@ function Admin() {
     setReadyToPost(false);
   }
   function submitToDb() {
-    if (itemData.type === "City") {
-      const Cities = [];
-      db.collection("Cities")
-        .add({
-          title: itemData.title,
-          id: itemData.id,
-          price: itemData.price,
-          rating: itemData.rating,
-          staffpick: itemData.staffPick,
-          imgs: itemData.imgs,
-          desc: itemData.desc,
-        })
-        .then((res) => {
-          resetForm();
-          db.collection("Cities")
-            .get()
-            .then((querySnapshot) => {
-              querySnapshot.forEach((doc) => {
-                const city = {
-                  title: doc.data().title,
-                  id: doc.data().id,
-                  price: doc.data().price,
-                  rating: doc.data().rating,
-                  staffPick: doc.data().staffpick,
-                  imgs: doc.data().imgs,
-                  desc: doc.data().desc,
-                };
-                Cities.push(city);
+    try {
+      if (itemData.type === "City") {
+        const Cities = [];
+        db.collection("Cities")
+          .add({
+            title: itemData.title,
+            id: itemData.id,
+            price: itemData.price,
+            rating: itemData.rating,
+            staffpick: itemData.staffPick,
+            imgs: itemData.imgs,
+            desc: itemData.desc,
+          })
+          .then((res) => {
+            resethtmlForm();
+            db.collection("Cities")
+              .get()
+              .then((querySnapshot) => {
+                querySnapshot.forEach((doc) => {
+                  const city = {
+                    title: doc.data().title,
+                    id: doc.data().id,
+                    price: doc.data().price,
+                    rating: doc.data().rating,
+                    staffPick: doc.data().staffpick,
+                    imgs: doc.data().imgs,
+                    desc: doc.data().desc,
+                  };
+                  Cities.push(city);
+                });
+                cityDispatch(cityActions.updateFromDb(Cities));
               });
-              cityDispatch(cityActions.updateFromDb(Cities));
-            });
-        });
-    }
-    if (itemData.type === "Flight") {
-      const Flights = [];
-      db.collection("Flights")
-        .add({
-          title: itemData.title,
-          id: itemData.id,
-          price: itemData.price,
-          rating: itemData.rating,
-          staffpick: itemData.staffPick,
-          imgs: itemData.imgs,
-          desc: itemData.desc,
-        })
-        .then((res) => {
-          resetForm();
-          db.collection("Flights")
-            .get()
-            .then((querySnapshot) => {
-              querySnapshot.forEach((doc) => {
-                const flight = {
-                  title: doc.data().title,
-                  id: doc.data().id,
-                  price: doc.data().price,
-                  rating: doc.data().rating,
-                  staffPick: doc.data().staffpick,
-                  imgs: doc.data().imgs,
-                  desc: doc.data().desc,
-                };
-                Flights.push(flight);
+          })
+          .catch((error) => alert(error.message));
+      }
+      if (itemData.type === "Flight") {
+        const Flights = [];
+        db.collection("Flights")
+          .add({
+            title: itemData.title,
+            id: itemData.id,
+            price: itemData.price,
+            rating: itemData.rating,
+            staffpick: itemData.staffPick,
+            imgs: itemData.imgs,
+            desc: itemData.desc,
+          })
+          .then((res) => {
+            resethtmlForm();
+            db.collection("Flights")
+              .get()
+              .then((querySnapshot) => {
+                querySnapshot.forEach((doc) => {
+                  const flight = {
+                    title: doc.data().title,
+                    id: doc.data().id,
+                    price: doc.data().price,
+                    rating: doc.data().rating,
+                    staffPick: doc.data().staffpick,
+                    imgs: doc.data().imgs,
+                    desc: doc.data().desc,
+                  };
+                  Flights.push(flight);
+                });
+                flightDispatch(flightActions.updateFromDb(Flights));
               });
-              flightDispatch(flightActions.updateFromDb(Flights));
-            });
-        });
-    }
-    if (itemData.type === "Rental") {
-      const Rentals = [];
-      db.collection("Rentals")
-        .add({
-          title: itemData.title,
-          id: itemData.id,
-          price: itemData.price,
-          rating: itemData.rating,
-          staffpick: itemData.staffPick,
-          imgs: itemData.imgs,
-          desc: itemData.desc,
-        })
-        .then((res) => {
-          resetForm();
-          db.collection("Rentals")
-            .get()
-            .then((querySnapshot) => {
-              querySnapshot.forEach((doc) => {
-                const rental = {
-                  title: doc.data().title,
-                  id: doc.data().id,
-                  price: doc.data().price,
-                  rating: doc.data().rating,
-                  staffPick: doc.data().staffpick,
-                  imgs: doc.data().imgs,
-                  desc: doc.data().desc,
-                };
-                Rentals.push(rental);
+          })
+          .catch((error) => alert(error.message));
+      }
+      if (itemData.type === "Rental") {
+        const Rentals = [];
+        db.collection("Rentals")
+          .add({
+            title: itemData.title,
+            id: itemData.id,
+            price: itemData.price,
+            rating: itemData.rating,
+            staffpick: itemData.staffPick,
+            imgs: itemData.imgs,
+            desc: itemData.desc,
+          })
+          .then((res) => {
+            resethtmlForm();
+            db.collection("Rentals")
+              .get()
+              .then((querySnapshot) => {
+                querySnapshot.forEach((doc) => {
+                  const rental = {
+                    title: doc.data().title,
+                    id: doc.data().id,
+                    price: doc.data().price,
+                    rating: doc.data().rating,
+                    staffPick: doc.data().staffpick,
+                    imgs: doc.data().imgs,
+                    desc: doc.data().desc,
+                  };
+                  Rentals.push(rental);
+                });
+                rentalDispatch(rentalActions.updateFromDb(Rentals));
               });
-              rentalDispatch(rentalActions.updateFromDb(Rentals));
-            });
-        });
-    }
-    if (itemData.type === "Hotel") {
-      const Hotels = [];
-      db.collection("Hotels")
-        .add({
-          title: itemData.title,
-          id: itemData.id,
-          price: itemData.price,
-          rating: itemData.rating,
-          staffpick: itemData.staffPick,
-          imgs: itemData.imgs,
-          desc: itemData.desc,
-          cities: itemData.cities,
-        })
-        .then((res) => {
-          resetForm();
-          db.collection("Hotels")
-            .get()
-            .then((querySnapshot) => {
-              querySnapshot.forEach((doc) => {
-                const Hotel = {
-                  title: doc.data().title,
-                  id: doc.data().id,
-                  price: doc.data().price,
-                  rating: doc.data().rating,
-                  staffPick: doc.data().staffpick,
-                  imgs: doc.data().imgs,
-                  desc: doc.data().desc,
-                  cities: doc.data().cities,
-                };
-                Hotels.push(Hotel);
+          })
+          .catch((error) => alert(error.message));
+      }
+      if (itemData.type === "Hotel") {
+        const Hotels = [];
+        db.collection("Hotels")
+          .add({
+            title: itemData.title,
+            id: itemData.id,
+            price: itemData.price,
+            rating: itemData.rating,
+            staffpick: itemData.staffPick,
+            imgs: itemData.imgs,
+            desc: itemData.desc,
+            cities: itemData.cities,
+          })
+          .then((res) => {
+            resethtmlForm();
+            db.collection("Hotels")
+              .get()
+              .then((querySnapshot) => {
+                querySnapshot.forEach((doc) => {
+                  const Hotel = {
+                    title: doc.data().title,
+                    id: doc.data().id,
+                    price: doc.data().price,
+                    rating: doc.data().rating,
+                    staffPick: doc.data().staffpick,
+                    imgs: doc.data().imgs,
+                    desc: doc.data().desc,
+                    cities: doc.data().cities,
+                  };
+                  Hotels.push(Hotel);
+                });
+                hotelDispatch(hotelActions.updateFromDb(Hotels));
               });
-              hotelDispatch(hotelActions.updateFromDb(Hotels));
-            });
-        });
+          })
+          .catch((error) => alert(error.message));
+      }
+    } catch (e) {
+      setSuccessMessage(e);
     }
   }
   if (readyToPost) {
@@ -364,7 +372,7 @@ function Admin() {
       {successMessage}
       <form autoComplete="off" className={classes.form}>
         <div className={classes["form-section"]}>
-          <label for="type">Type</label>
+          <label htmlFor="type">Type</label>
           <select ref={typeRef} onChange={typeSelectHandler} name="Type">
             <option value="City">City</option>
             <option value="Flight">Flight</option>
@@ -373,12 +381,14 @@ function Admin() {
           </select>
         </div>
         <div className={classes["form-section"]}>
-          <label for="title">Title</label>
+          <label htmlFor="title">Title</label>
           <input ref={titleRef} type="text" id="title" label="Title" />
         </div>
         {citySelector}
         <div className={classes["form-section"]}>
-          <label for="title">Insert Image Links (Seperated By Spaces)</label>
+          <label htmlFor="title">
+            Insert Image Links (Seperated By Spaces)
+          </label>
           <input
             autoComplete="off"
             ref={imgRef}
@@ -388,11 +398,11 @@ function Admin() {
           />
         </div>
         <div className={classes["form-section"]}>
-          <label for="desc">Description</label>
+          <label htmlFor="desc">Description</label>
           <input autoComplete="off" ref={descRef} type="text" id="desc" />
         </div>
         <div className={classes["form-section"]}>
-          <label for="staffPick">Staff Pick?</label>
+          <label htmlFor="staffPick">Staff Pick?</label>
           <select ref={staffPickRef} name="staffPick">
             <option value="Yes">Yes</option>
             <option value="No">No</option>
