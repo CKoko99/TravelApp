@@ -53,7 +53,9 @@ function Plannedcard(props) {
             )}
             {props.type === "flight" && (
               <div className={classes["small-text-rows"]}>
-                <div className={classes["price"]}>${props.price}</div>
+                <div className={classes["price"]}>
+                  ${props.price} per ticket
+                </div>
               </div>
             )}
             {(props.type === "hotel" || props.type === "rental") && (
