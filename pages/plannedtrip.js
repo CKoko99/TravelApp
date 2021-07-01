@@ -112,7 +112,6 @@ function Plannedtrip() {
                     id={selectedHotel.id}
                     price={(
                       selectedHotel.price *
-                      planSelector.days *
                       selectedCity.price
                     ).toFixed(2)}
                     desc={selectedHotel.desc}
@@ -139,7 +138,6 @@ function Plannedtrip() {
                     price={(
                       Number(selectedRental.price) *
                       selectedCity.price *
-                      planSelector.days
                     ).toFixed(2)}
                     desc={selectedRental.desc}
                     rating={selectedRental.rating}
