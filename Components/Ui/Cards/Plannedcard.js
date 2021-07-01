@@ -54,13 +54,15 @@ function Plannedcard(props) {
             {props.type === "flight" && (
               <div className={classes["small-text-rows"]}>
                 <div className={classes["price"]}>
-                  ${props.price} per ticket
+                  ${Number(props.price).toFixed(2)} per ticket
                 </div>
               </div>
             )}
             {(props.type === "hotel" || props.type === "rental") && (
               <div className={classes["small-text-rows"]}>
-                <div className={classes["price"]}>${props.price} per night</div>
+                <div className={classes["price"]}>
+                  ${Number(props.price).toFixed(2)} per night
+                </div>
               </div>
             )}
           </div>

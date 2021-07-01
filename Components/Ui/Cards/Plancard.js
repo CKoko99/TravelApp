@@ -103,7 +103,10 @@ function Plancard(props) {
                 {" "}
                 $
                 {planSelector.city.price && (
-                  <div>{props.price * planSelector.city.price}&nbsp; </div>
+                  <div>
+                    {Number(props.price * planSelector.city.price).toFixed(2)}
+                    &nbsp;{" "}
+                  </div>
                 )}{" "}
                 per ticket
               </div>
@@ -114,7 +117,10 @@ function Plancard(props) {
               <div className={classes["price"]}>
                 From $
                 {planSelector.city.price && (
-                  <div>{props.price * planSelector.city.price}&nbsp; </div>
+                  <div>
+                    {Number(props.price * planSelector.city.price).toFixed(2)}
+                    &nbsp;{" "}
+                  </div>
                 )}{" "}
                 per night
               </div>

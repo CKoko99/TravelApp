@@ -42,7 +42,7 @@ function Planhotel() {
             clicked(item);
           }}
           type="hotel"
-          price={item.price.toFixed(2)}
+          price={item.price}
           desc={item.desc}
           rating={item.rating}
           title={item.title}

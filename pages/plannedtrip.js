@@ -110,9 +110,7 @@ function Plannedtrip() {
                   <Plannedcard
                     type="hotel"
                     id={selectedHotel.id}
-                    price={(selectedHotel.price * selectedCity.price).toFixed(
-                      2
-                    )}
+                    price={selectedHotel.price * selectedCity.price}
                     desc={selectedHotel.desc}
                     rating={selectedHotel.rating}
                     title={selectedHotel.title}
@@ -134,9 +132,7 @@ function Plannedtrip() {
                   <Plannedcard
                     type="rental"
                     id={selectedRental.id}
-                    price={(
-                      Number(selectedRental.price) * selectedCity.price
-                    ).toFixed(2)}
+                    price={Number(selectedRental.price) * selectedCity.price}
                     desc={selectedRental.desc}
                     rating={selectedRental.rating}
                     title={selectedRental.title}

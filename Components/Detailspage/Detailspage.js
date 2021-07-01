@@ -138,7 +138,8 @@ function Detailspage(props) {
       {props.type === "flight" && (
         <div className={classes["small-text-rows"]}>
           <div className={classes["price"]}>
-            {!props.planning && <>From</>} ${props.price} per ticket
+            {!props.planning && <>From</>} ${Number(props.price).toFixed(2)} per
+            ticket
           </div>
         </div>
       )}
@@ -146,7 +147,8 @@ function Detailspage(props) {
         <div className={classes["small-text-rows"]}>
           <div className={classes["price"]}>
             {" "}
-            {!props.planning && <>From</>} ${props.price} per night
+            {!props.planning && <>From</>} ${Number(props.price).toFixed(2)} per
+            night
           </div>
         </div>
       )}

@@ -55,6 +55,8 @@ function Planrental() {
         {selectedRental && (
           <div className={classes.details}>
             <Detailspage
+              type="rental"
+              price={selectedRental.price * planSelector.city.price}
               desc={selectedRental.desc}
               planning={true}
               rating={selectedRental.rating}
