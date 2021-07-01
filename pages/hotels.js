@@ -2,22 +2,30 @@ import classes from "./pages.module.css";
 import { useSelector } from "react-redux";
 import Pagecard from "../Components/Ui/Cards/Pagecard";
 
-function Hotels(){
-    const Hotels = useSelector((state) => state.hotels.hotelsList);
-    const hotelList = Hotels.map((item) => {
-        return (<Pagecard
+function Hotels() {
+  const Hotels = useSelector((state) => state.hotels.hotelsList);
+  const hotelList = Hotels.map((item) => {
+    return (
+      <Pagecard
         type="hotel"
-        price={item.price}
+        price={item.price.toFixed(2)}
         id={item.id}
         key={item.id}
-          desc={item.desc}
-          rating={item.rating}
-          title={item.title}
-          img={item.imgs[0]}
-        />)
-      });
-    return<><div className={classes["page-list"]}>
-    <div className={classes.title}>Hotels</div>{hotelList}</div></>
+        desc={item.desc}
+        rating={item.rating}
+        title={item.title}
+        img={item.imgs[0]}
+      />
+    );
+  });
+  return (
+    <>
+      <div className={classes["page-list"]}>
+        <div className={classes.title}>Hotels</div>
+        {hotelList}
+      </div>
+    </>
+  );
 }
 
-export default Hotels
+export default Hotels;

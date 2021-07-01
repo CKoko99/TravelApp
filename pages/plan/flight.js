@@ -39,7 +39,7 @@ function Planflight() {
         }}
         key={item.id}
         type="flight"
-        price={item.price}
+        price={item.price.toFixed(2)}
         desc={item.desc}
         rating={item.rating}
         title={item.title}
@@ -54,7 +54,9 @@ function Planflight() {
           <div className={classes.details}>
             <Detailspage
               type="flight"
-              price={selectedFlight.price * planSelector.city.price}
+              price={(selectedFlight.price * planSelector.city.price).toFixed(
+                2
+              )}
               desc={selectedFlight.desc}
               rating={selectedFlight.rating}
               title={selectedFlight.title}

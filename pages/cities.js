@@ -8,6 +8,7 @@ function Cities() {
     return (
       <Pagecard
         type="city"
+        price={item.price}
         id={item.id}
         key={item.id}
         desc={item.desc}

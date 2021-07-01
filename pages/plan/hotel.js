@@ -42,7 +42,7 @@ function Planhotel() {
             clicked(item);
           }}
           type="hotel"
-          price={item.price}
+          price={item.price.toFixed(2)}
           desc={item.desc}
           rating={item.rating}
           title={item.title}
@@ -60,7 +60,7 @@ function Planhotel() {
           <div className={classes.details}>
             <Detailspage
               type="hotel"
-              price={selectedHotel.price}
+              price={(selectedHotel.price * planSelector.city.price).toFixed(2)}
               desc={selectedHotel.desc}
               rating={selectedHotel.rating}
               title={selectedHotel.title}

@@ -8,7 +8,7 @@ function Rentals() {
     return (
       <Pagecard
         type="rental"
-        price={item.price}
+        price={item.price.toFixed(2)}
         id={item.id}
         key={item.id}
         desc={item.desc}
